@@ -85,7 +85,7 @@ export default function Home() {
           >
             <div className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/[0.08] bg-[#050912]">
               <Image
-                src="/logo/soplex-sentinel.png"
+                src="/soplex-sentinel/logo/soplex-sentinel.png"
                 alt="Soplex Sentinel"
                 width={420}
                 height={420}
@@ -286,7 +286,7 @@ export default function Home() {
                   <div className="flex items-center gap-2">
                     <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg border border-blue-400/20 bg-blue-400/[0.06]">
                       <Image
-                        src="/logo/soplex-sentinel.png"
+                        src="/soplex-sentinel/logo/soplex-sentinel.png"
                         alt=""
                         width={420}
                         height={420}
@@ -671,7 +671,7 @@ export default function Home() {
                 {/* Logo */}
                 <div className="mx-auto h-16 w-16 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#050912] sm:h-20 sm:w-20">
                   <Image
-                    src="/logo/soplex-sentinel.png"
+                    src="/soplex-sentinel/logo/soplex-sentinel.png"
                     alt="Soplex Sentinel"
                     width={420}
                     height={420}
@@ -739,7 +739,7 @@ export default function Home() {
               <div className="flex items-center gap-3">
                 <div className="h-12 w-12 overflow-hidden rounded-xl border border-white/[0.08] bg-[#050912]">
                   <Image
-                    src="/logo/soplex-sentinel.png"
+                    src="/soplex-sentinel/logo/soplex-sentinel.png"
                     alt="Soplex Sentinel"
                     width={420}
                     height={420}

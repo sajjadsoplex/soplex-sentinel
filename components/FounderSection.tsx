@@ -101,7 +101,7 @@ export default function FounderSection() {
               {/* Image */}
               <div className="relative aspect-[4/5] overflow-hidden">
                 <Image
-                  src="/founder/sajjad-ullah.png"
+                  src="/soplex-sentinel/founder/sajjad-ullah.png"
                   alt="Sajjad Ullah — Founder & CEO of SoplexAI"
                   fill
                   priority
