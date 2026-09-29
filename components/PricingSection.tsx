@@ -146,6 +146,7 @@ export default function PricingSection() {
 
           <div className="mt-7 inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.025] p-1">
             <button
+              type="button"
               onClick={() => setAnnual(false)}
               className={`rounded-full px-4 py-2 text-[10px] font-medium transition-all ${
                 !annual
@@ -157,6 +158,7 @@ export default function PricingSection() {
             </button>
 
             <button
+              type="button"
               onClick={() => setAnnual(true)}
               className={`flex items-center gap-2 rounded-full px-4 py-2 text-[10px] font-medium transition-all ${
                 annual
@@ -281,9 +283,9 @@ export default function PricingSection() {
 
                   <a
                     href="#contact"
-                    className={`group mt-6 flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-[10px] font-medium tracking-[0.08em] transition-all ${
+                    className={`group mt-6 flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-[10px] font-semibold tracking-[0.08em] transition-all duration-300 ${
                       plan.featured
-                        ? "bg-white text-black hover:bg-blue-100"
+                        ? "border border-blue-300/30 bg-blue-500 text-white shadow-lg shadow-blue-500/20 hover:-translate-y-0.5 hover:bg-blue-400 hover:shadow-blue-500/30"
                         : "border border-white/10 bg-white/[0.025] text-white/75 hover:border-white/20 hover:bg-white/[0.05] hover:text-white"
                     }`}
                   >
@@ -291,7 +293,7 @@ export default function PricingSection() {
                       ? "START BUSINESS"
                       : "GET STARTED"}
 
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
                   </a>
 
                   {/* Divider */}
@@ -466,6 +468,7 @@ export default function PricingSection() {
               return (
                 <div key={faq.question}>
                   <button
+                    type="button"
                     onClick={() =>
                       setOpenFaq(open ? null : index)
                     }

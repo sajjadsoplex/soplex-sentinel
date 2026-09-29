@@ -244,7 +244,8 @@ export default function Home() {
               </p>
 
               {/* Buttons */}
-              <div className="mt-8 flex flex-col items-stretch gap-3 xs:flex-row xs:flex-wrap xs:items-center sm:mt-9 sm:flex-row">
+              <div className="mt-8 flex flex-col items-stretch gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:items-center">
+                {/* Explore Sentinel */}
                 <a
                   href="#product"
                   className="group inline-flex items-center justify-center gap-2 rounded-full bg-blue-500 px-5 py-3 text-xs font-semibold text-white shadow-lg shadow-blue-500/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-400 hover:shadow-blue-500/20"
@@ -253,11 +254,23 @@ export default function Home() {
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </a>
 
+                {/* See How It Works */}
                 <a
                   href="#how-it-works"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.025] px-5 py-3 text-xs font-medium text-white/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/30 hover:bg-blue-400/[0.05] hover:text-white"
                 >
                   See How It Works
+                </a>
+
+                {/* Join WhatsApp Channel */}
+                <a
+                  href="https://whatsapp.com/channel/0029VbDaedm4o7qGr9exbh0k"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group basis-full inline-flex items-center justify-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/[0.04] px-5 py-3 text-xs font-medium text-emerald-200 transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-400/35 hover:bg-emerald-400/[0.08] hover:text-emerald-100 sm:basis-auto"
+                >
+                  Join WhatsApp Channel
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </a>
               </div>
 
@@ -829,7 +842,7 @@ export default function Home() {
               </a>
 
               <a
-                href="mailto:hello@soplexai.com"
+                href="mailto:hafsa@soplexai.com"
                 className="transition-colors hover:text-white"
               >
                 Contact
