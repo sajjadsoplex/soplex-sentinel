@@ -45,7 +45,8 @@ const actions: DemoAction[] = [
     amount: "$420",
     icon: DollarSign,
     decision: "ALLOW",
-    reason: "Action matches the agent's declared purpose and configured payment policy.",
+    reason:
+      "Action matches the agent's declared purpose and configured payment policy.",
     intent: "Process approved customer payments",
     risk: "LOW",
     policy: "Payments ≤ $500 allowed",
@@ -59,7 +60,8 @@ const actions: DemoAction[] = [
     amount: "$8,400",
     icon: DollarSign,
     decision: "APPROVAL",
-    reason: "Payment exceeds the configured autonomous spending threshold.",
+    reason:
+      "Payment exceeds the configured autonomous spending threshold.",
     intent: "Process approved customer payments",
     risk: "MEDIUM",
     policy: "Payments > $500 require approval",
@@ -72,7 +74,8 @@ const actions: DemoAction[] = [
     target: "Production Cluster",
     icon: FileCode2,
     decision: "BLOCK",
-    reason: "Production deployment is outside this agent's permitted operational scope.",
+    reason:
+      "Production deployment is outside this agent's permitted operational scope.",
     intent: "Write, test and review application code",
     risk: "HIGH",
     policy: "Production deployment prohibited",
@@ -85,7 +88,8 @@ const actions: DemoAction[] = [
     target: "Customer Database",
     icon: Database,
     decision: "BLOCK",
-    reason: "Bulk data export does not match the agent's declared support purpose.",
+    reason:
+      "Bulk data export does not match the agent's declared support purpose.",
     intent: "Answer customer questions and resolve support requests",
     risk: "HIGH",
     policy: "Bulk customer export prohibited",
@@ -107,7 +111,11 @@ const decisionConfig = {
   },
 };
 
-function StatusDot({ color = "blue" }: { color?: "blue" | "green" | "amber" | "red" }) {
+function StatusDot({
+  color = "blue",
+}: {
+  color?: "blue" | "green" | "amber" | "red";
+}) {
   const classes = {
     blue: "bg-blue-300 shadow-[0_0_12px_rgba(96,165,250,0.7)]",
     green: "bg-emerald-300 shadow-[0_0_12px_rgba(52,211,153,0.7)]",
@@ -115,7 +123,9 @@ function StatusDot({ color = "blue" }: { color?: "blue" | "green" | "amber" | "r
     red: "bg-red-300 shadow-[0_0_12px_rgba(248,113,113,0.7)]",
   };
 
-  return <span className={`h-1.5 w-1.5 rounded-full ${classes[color]}`} />;
+  return (
+    <span className={`h-1.5 w-1.5 rounded-full ${classes[color]}`} />
+  );
 }
 
 function DecisionIcon({ decision }: { decision: Decision }) {
@@ -168,15 +178,15 @@ function EvaluationRow({
     <motion.div
       initial={{ opacity: 0, x: 12 }}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.35 }}
+      transition={{ duration: 0.3 }}
       className={`flex items-center justify-between rounded-xl border ${style.border} ${style.bg} px-3.5 py-3`}
     >
       <div className="flex items-center gap-3">
-        <span className="font-mono text-[9px] text-white/20">
+        <span className="font-mono text-[9px] text-white/42">
           {number}
         </span>
 
-        <span className="text-[10px] text-white/55">
+        <span className="text-[10px] font-medium text-white/72">
           {title}
         </span>
       </div>
@@ -184,7 +194,7 @@ function EvaluationRow({
       <div className="flex items-center gap-2">
         <StatusDot color={style.dot} />
 
-        <span className={`text-[9px] tracking-wider ${style.text}`}>
+        <span className={`text-[9px] font-medium tracking-wider ${style.text}`}>
           {value}
         </span>
       </div>
@@ -198,7 +208,9 @@ export default function SentinelDemo() {
   const [showDecision, setShowDecision] = useState(true);
 
   const selectedAction = useMemo(
-    () => actions.find((action) => action.id === selectedId) ?? actions[0],
+    () =>
+      actions.find((action) => action.id === selectedId) ??
+      actions[0],
     [selectedId]
   );
 
@@ -207,7 +219,6 @@ export default function SentinelDemo() {
 
     setIsEvaluating(true);
     setShowDecision(false);
-
     setSelectedId(id);
 
     window.setTimeout(() => {
@@ -224,22 +235,22 @@ export default function SentinelDemo() {
       border: "border-emerald-400/20",
       bg: "bg-emerald-400/[0.045]",
       text: "text-emerald-200",
-      muted: "text-emerald-300/45",
-      glow: "bg-emerald-400/[0.06]",
+      muted: "text-emerald-300/65",
+      glow: "bg-emerald-400/[0.055]",
     },
     APPROVAL: {
       border: "border-amber-400/20",
       bg: "bg-amber-400/[0.045]",
       text: "text-amber-100",
-      muted: "text-amber-300/45",
-      glow: "bg-amber-400/[0.06]",
+      muted: "text-amber-300/65",
+      glow: "bg-amber-400/[0.055]",
     },
     BLOCK: {
       border: "border-red-400/20",
       bg: "bg-red-400/[0.045]",
       text: "text-red-100",
-      muted: "text-red-300/45",
-      glow: "bg-red-400/[0.06]",
+      muted: "text-red-300/65",
+      glow: "bg-red-400/[0.055]",
     },
   };
 
@@ -248,77 +259,83 @@ export default function SentinelDemo() {
   return (
     <section
       id="demo"
-      className="relative overflow-hidden border-t border-white/[0.06] bg-[#02050a] py-32"
+      className="relative overflow-hidden border-t border-white/[0.06] bg-[#02050a] px-0 py-20 sm:py-24 lg:py-28"
     >
-      {/* Ambient background */}
+      {/* =========================================================
+          AMBIENT BACKGROUND
+      ========================================================= */}
+
       <div className="pointer-events-none absolute inset-0">
         <div
-          className={`absolute left-1/2 top-1/2 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[160px] transition-colors duration-700 ${currentStyle.glow}`}
+          className={`absolute left-1/2 top-1/2 h-[520px] w-[780px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[150px] transition-colors duration-700 ${currentStyle.glow}`}
         />
 
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.014)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.014)_1px,transparent_1px)] bg-[size:80px_80px]" />
       </div>
 
       <div className="relative mx-auto max-w-[1450px] px-6 lg:px-10">
-        {/* =====================================================
-            SECTION HEADER
-        ===================================================== */}
+        {/* =========================================================
+            HEADER
+        ========================================================= */}
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.65 }}
           className="mx-auto max-w-3xl text-center"
         >
-          <div className="mb-5 flex items-center justify-center gap-3">
-            <div className="h-px w-8 bg-blue-400/40" />
+          <div className="mb-4 flex items-center justify-center gap-3">
+            <div className="h-px w-8 bg-blue-400/50" />
 
-            <span className="text-[10px] tracking-[0.3em] text-blue-300/70">
+            <span className="text-[10px] font-medium tracking-[0.3em] text-blue-300">
               SEE SENTINEL IN ACTION
             </span>
 
-            <div className="h-px w-8 bg-blue-400/40" />
+            <div className="h-px w-8 bg-blue-400/50" />
           </div>
 
-          <h2 className="text-4xl font-semibold tracking-[-0.045em] text-white sm:text-5xl lg:text-6xl">
+          <h2 className="text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-white sm:text-5xl lg:text-6xl">
             Before the agent acts,
             <br />
-            <span className="text-white/30">
+            <span className="text-white/68">
               Sentinel decides.
             </span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/40 sm:text-base">
+          <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-7 text-white/68 sm:text-base">
             Choose an AI action below. Watch Sentinel evaluate identity,
             intent, policy, and risk — then decide what happens next.
           </p>
         </motion.div>
 
-        {/* =====================================================
+        {/* =========================================================
             DEMO
-        ===================================================== */}
+        ========================================================= */}
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="mt-20"
+          transition={{ duration: 0.7, delay: 0.08 }}
+          className="mt-14 sm:mt-16"
         >
-          {/* Top control bar */}
-          <div className="mb-4 flex flex-col gap-4 rounded-2xl border border-white/10 bg-[#070b12]/90 p-4 backdrop-blur-xl lg:flex-row lg:items-center lg:justify-between">
+          {/* =======================================================
+              CONTROL BAR
+          ======================================================= */}
+
+          <div className="mb-3 flex flex-col gap-4 rounded-2xl border border-white/[0.09] bg-[#070b12]/95 p-4 backdrop-blur-xl lg:flex-row lg:items-center lg:justify-between">
             <div className="flex items-center gap-3">
               <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-blue-400/15 bg-blue-400/[0.05]">
                 <Bot className="h-4 w-4 text-blue-300" />
               </div>
 
               <div>
-                <p className="text-[9px] tracking-[0.2em] text-white/25">
+                <p className="text-[9px] font-medium tracking-[0.2em] text-white/52">
                   INTERACTIVE SIMULATION
                 </p>
 
-                <p className="mt-1 text-xs text-white/60">
+                <p className="mt-1 text-xs text-white/75">
                   Select an agent action
                 </p>
               </div>
@@ -336,16 +353,16 @@ export default function SentinelDemo() {
                     className={`group flex items-center gap-2 rounded-xl border px-3 py-2.5 text-left transition-all duration-300 ${
                       active
                         ? "border-blue-400/30 bg-blue-400/[0.08] text-white"
-                        : "border-white/7 bg-white/[0.02] text-white/35 hover:border-white/15 hover:bg-white/[0.04] hover:text-white/65"
+                        : "border-white/[0.08] bg-white/[0.02] text-white/58 hover:border-white/15 hover:bg-white/[0.04] hover:text-white/85"
                     }`}
                   >
                     <Icon
                       className={`h-3.5 w-3.5 ${
-                        active ? "text-blue-300" : "text-white/25"
+                        active ? "text-blue-300" : "text-white/45"
                       }`}
                     />
 
-                    <span className="text-[9px]">
+                    <span className="text-[9px] font-medium">
                       {action.action}
                     </span>
                   </button>
@@ -354,21 +371,24 @@ export default function SentinelDemo() {
             </div>
           </div>
 
-          {/* Main simulator */}
-          <div className="overflow-hidden rounded-[30px] border border-white/10 bg-[#060a11] shadow-2xl shadow-black/40">
-            <div className="grid min-h-[650px] lg:grid-cols-[0.85fr_1.15fr]">
-              {/* =================================================
-                  LEFT — AGENT REQUEST
-              ================================================= */}
+          {/* =======================================================
+              MAIN SIMULATOR
+          ======================================================= */}
 
-              <div className="relative border-b border-white/[0.06] p-6 sm:p-8 lg:border-b-0 lg:border-r lg:p-10">
-                <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-blue-500/[0.035] blur-[100px]" />
+          <div className="overflow-hidden rounded-[28px] border border-white/[0.09] bg-[#060a11] shadow-2xl shadow-black/40">
+            <div className="grid min-h-[570px] lg:grid-cols-[0.88fr_1.12fr]">
+              {/* ===================================================
+                  LEFT — AGENT REQUEST
+              =================================================== */}
+
+              <div className="relative border-b border-white/[0.06] p-5 sm:p-7 lg:border-b-0 lg:border-r lg:p-8">
+                <div className="absolute right-0 top-0 h-56 w-56 rounded-full bg-blue-500/[0.035] blur-[90px]" />
 
                 <div className="relative flex h-full flex-col">
                   {/* Agent header */}
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-[9px] tracking-[0.25em] text-white/25">
+                      <p className="text-[9px] font-medium tracking-[0.25em] text-white/52">
                         AI WORKER
                       </p>
 
@@ -378,35 +398,35 @@ export default function SentinelDemo() {
                           <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-400" />
                         </span>
 
-                        <span className="text-sm font-medium text-white/80">
+                        <span className="text-sm font-medium text-white/88">
                           {selectedAction.agent}
                         </span>
                       </div>
                     </div>
 
-                    <span className="rounded-full border border-white/10 bg-white/[0.025] px-2.5 py-1 text-[8px] tracking-[0.15em] text-white/30">
+                    <span className="rounded-full border border-white/[0.09] bg-white/[0.025] px-2.5 py-1 text-[8px] font-medium tracking-[0.15em] text-white/58">
                       {selectedAction.role}
                     </span>
                   </div>
 
                   {/* Agent identity */}
-                  <div className="mt-10">
-                    <p className="mb-3 text-[9px] tracking-[0.2em] text-white/25">
+                  <div className="mt-7">
+                    <p className="mb-2 text-[9px] font-medium tracking-[0.2em] text-white/52">
                       AGENT IDENTITY
                     </p>
 
-                    <div className="rounded-2xl border border-white/8 bg-white/[0.025] p-4">
+                    <div className="rounded-2xl border border-white/[0.08] bg-white/[0.025] p-4">
                       <div className="flex items-center gap-4">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-blue-400/15 bg-blue-400/[0.05]">
+                        <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-blue-400/15 bg-blue-400/[0.05]">
                           <Bot className="h-5 w-5 text-blue-300" />
                         </div>
 
                         <div>
-                          <p className="text-xs text-white/70">
+                          <p className="text-xs font-medium text-white/82">
                             {selectedAction.agent}
                           </p>
 
-                          <p className="mt-1 font-mono text-[9px] text-white/25">
+                          <p className="mt-1 font-mono text-[9px] text-white/48">
                             AGT-{selectedAction.id.toUpperCase()}-07
                           </p>
                         </div>
@@ -415,43 +435,43 @@ export default function SentinelDemo() {
                   </div>
 
                   {/* Requested action */}
-                  <div className="mt-8">
-                    <p className="mb-3 text-[9px] tracking-[0.2em] text-white/25">
+                  <div className="mt-6">
+                    <p className="mb-2 text-[9px] font-medium tracking-[0.2em] text-white/52">
                       REQUESTED ACTION
                     </p>
 
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={selectedAction.id}
-                        initial={{ opacity: 0, y: 10 }}
+                        initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
+                        exit={{ opacity: 0, y: -8 }}
                         transition={{ duration: 0.25 }}
-                        className="rounded-2xl border border-white/10 bg-[#080d15] p-5"
+                        className="rounded-2xl border border-white/[0.09] bg-[#080d15] p-4 sm:p-5"
                       >
                         <div className="flex items-start justify-between">
                           <div>
-                            <p className="text-lg font-medium tracking-[-0.02em] text-white/90">
+                            <p className="text-base font-medium tracking-[-0.02em] text-white/92 sm:text-lg">
                               {selectedAction.action}
                             </p>
 
-                            <p className="mt-2 text-xs text-white/35">
+                            <p className="mt-1.5 text-xs text-white/62">
                               {selectedAction.target}
                             </p>
                           </div>
 
-                          <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/8 bg-white/[0.025]">
+                          <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.025]">
                             <selectedAction.icon className="h-4 w-4 text-blue-300" />
                           </div>
                         </div>
 
                         {selectedAction.amount && (
-                          <div className="mt-5 border-t border-white/5 pt-4">
-                            <p className="text-[8px] tracking-[0.2em] text-white/20">
+                          <div className="mt-4 border-t border-white/[0.06] pt-3">
+                            <p className="text-[8px] font-medium tracking-[0.2em] text-white/48">
                               TRANSACTION VALUE
                             </p>
 
-                            <p className="mt-1 font-mono text-2xl text-white/80">
+                            <p className="mt-1 font-mono text-xl text-white/88 sm:text-2xl">
                               {selectedAction.amount}
                             </p>
                           </div>
@@ -461,16 +481,16 @@ export default function SentinelDemo() {
                   </div>
 
                   {/* Intent */}
-                  <div className="mt-auto pt-8">
-                    <p className="mb-3 text-[9px] tracking-[0.2em] text-white/25">
+                  <div className="mt-auto pt-6">
+                    <p className="mb-2 text-[9px] font-medium tracking-[0.2em] text-white/52">
                       DECLARED INTENT
                     </p>
 
-                    <div className="rounded-xl border border-white/7 bg-white/[0.02] p-4">
+                    <div className="rounded-xl border border-white/[0.07] bg-white/[0.02] p-3.5">
                       <div className="flex gap-3">
-                        <Zap className="mt-0.5 h-3.5 w-3.5 shrink-0 text-blue-300/60" />
+                        <Zap className="mt-0.5 h-3.5 w-3.5 shrink-0 text-blue-300/75" />
 
-                        <p className="text-[11px] leading-5 text-white/45">
+                        <p className="text-[11px] leading-5 text-white/70">
                           {selectedAction.intent}
                         </p>
                       </div>
@@ -479,12 +499,12 @@ export default function SentinelDemo() {
                 </div>
               </div>
 
-              {/* =================================================
+              {/* ===================================================
                   RIGHT — SENTINEL
-              ================================================= */}
+              =================================================== */}
 
-              <div className="relative p-6 sm:p-8 lg:p-10">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(37,99,235,0.055),transparent_55%)]" />
+              <div className="relative p-5 sm:p-7 lg:p-8">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(37,99,235,0.05),transparent_55%)]" />
 
                 <div className="relative flex h-full flex-col">
                   {/* Sentinel header */}
@@ -495,11 +515,11 @@ export default function SentinelDemo() {
                       </div>
 
                       <div>
-                        <p className="text-[9px] tracking-[0.22em] text-blue-200/45">
+                        <p className="text-[9px] font-medium tracking-[0.22em] text-blue-200/75">
                           SOPLEX SENTINEL
                         </p>
 
-                        <p className="mt-1 text-xs text-white/55">
+                        <p className="mt-1 text-xs text-white/72">
                           Runtime Decision Engine
                         </p>
                       </div>
@@ -508,29 +528,29 @@ export default function SentinelDemo() {
                     <div className="flex items-center gap-2 rounded-full border border-emerald-400/10 bg-emerald-400/[0.025] px-3 py-1.5">
                       <StatusDot color="green" />
 
-                      <span className="text-[8px] tracking-[0.15em] text-emerald-300/70">
+                      <span className="text-[8px] font-medium tracking-[0.15em] text-emerald-300/85">
                         PROTECTING
                       </span>
                     </div>
                   </div>
 
                   {/* Evaluation */}
-                  <div className="mt-10">
-                    <div className="mb-4 flex items-center justify-between">
+                  <div className="mt-7">
+                    <div className="mb-3 flex items-center justify-between">
                       <div>
-                        <p className="text-[9px] tracking-[0.22em] text-white/25">
+                        <p className="text-[9px] font-medium tracking-[0.22em] text-white/52">
                           RUNTIME EVALUATION
                         </p>
 
-                        <p className="mt-1 text-xs text-white/50">
+                        <p className="mt-1 text-xs text-white/65">
                           Evaluating requested action
                         </p>
                       </div>
 
                       <div className="flex items-center gap-2">
-                        <Clock3 className="h-3 w-3 text-white/20" />
+                        <Clock3 className="h-3 w-3 text-white/48" />
 
-                        <span className="font-mono text-[9px] text-white/25">
+                        <span className="font-mono text-[9px] text-white/52">
                           {isEvaluating ? "..." : "42ms"}
                         </span>
                       </div>
@@ -594,24 +614,24 @@ export default function SentinelDemo() {
                   </div>
 
                   {/* Policy */}
-                  <div className="mt-8">
-                    <div className="mb-3 flex items-center gap-2">
-                      <LockKeyhole className="h-3.5 w-3.5 text-white/25" />
+                  <div className="mt-6">
+                    <div className="mb-2 flex items-center gap-2">
+                      <LockKeyhole className="h-3.5 w-3.5 text-white/52" />
 
-                      <span className="text-[9px] tracking-[0.2em] text-white/25">
+                      <span className="text-[9px] font-medium tracking-[0.2em] text-white/52">
                         ACTIVE POLICY
                       </span>
                     </div>
 
-                    <div className="rounded-xl border border-white/7 bg-white/[0.02] p-4">
-                      <p className="text-[11px] text-white/50">
+                    <div className="rounded-xl border border-white/[0.07] bg-white/[0.02] p-3.5">
+                      <p className="text-[11px] leading-5 text-white/70">
                         {selectedAction.policy}
                       </p>
                     </div>
                   </div>
 
                   {/* Decision */}
-                  <div className="mt-auto pt-8">
+                  <div className="mt-auto pt-6">
                     <AnimatePresence mode="wait">
                       {isEvaluating ? (
                         <motion.div
@@ -619,7 +639,7 @@ export default function SentinelDemo() {
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
-                          className="flex min-h-[150px] items-center justify-center rounded-2xl border border-blue-400/15 bg-blue-400/[0.025]"
+                          className="flex min-h-[130px] items-center justify-center rounded-2xl border border-blue-400/15 bg-blue-400/[0.025]"
                         >
                           <div className="text-center">
                             <motion.div
@@ -629,12 +649,12 @@ export default function SentinelDemo() {
                                 repeat: Infinity,
                                 ease: "linear",
                               }}
-                              className="mx-auto mb-4 flex h-8 w-8 items-center justify-center rounded-full border border-blue-400/20 border-t-blue-300"
+                              className="mx-auto mb-3 flex h-8 w-8 items-center justify-center rounded-full border border-blue-400/20 border-t-blue-300"
                             >
                               <ShieldCheck className="h-3.5 w-3.5 text-blue-300" />
                             </motion.div>
 
-                            <p className="text-[9px] tracking-[0.2em] text-blue-200/50">
+                            <p className="text-[9px] font-medium tracking-[0.2em] text-blue-200/75">
                               EVALUATING ACTION
                             </p>
                           </div>
@@ -642,10 +662,10 @@ export default function SentinelDemo() {
                       ) : (
                         <motion.div
                           key={selectedAction.id}
-                          initial={{ opacity: 0, y: 12 }}
+                          initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.4 }}
-                          className={`rounded-2xl border ${currentStyle.border} ${currentStyle.bg} p-5`}
+                          transition={{ duration: 0.35 }}
+                          className={`rounded-2xl border ${currentStyle.border} ${currentStyle.bg} p-4 sm:p-5`}
                         >
                           <div className="flex items-start justify-between gap-4">
                             <div className="flex items-start gap-3">
@@ -657,13 +677,13 @@ export default function SentinelDemo() {
 
                               <div>
                                 <p
-                                  className={`text-[9px] tracking-[0.2em] ${currentStyle.muted}`}
+                                  className={`text-[9px] font-medium tracking-[0.2em] ${currentStyle.muted}`}
                                 >
                                   FINAL DECISION
                                 </p>
 
                                 <p
-                                  className={`mt-1 text-lg font-medium ${currentStyle.text}`}
+                                  className={`mt-1 text-base font-medium sm:text-lg ${currentStyle.text}`}
                                 >
                                   {config.label}
                                 </p>
@@ -681,28 +701,30 @@ export default function SentinelDemo() {
                             />
                           </div>
 
-                          <p className="mt-4 text-[11px] leading-5 text-white/40">
+                          <p className="mt-3 text-[11px] leading-5 text-white/70">
                             {selectedAction.reason}
                           </p>
 
                           {decision === "APPROVAL" && (
-                            <div className="mt-4 grid grid-cols-2 gap-2">
-                              <button className="rounded-lg border border-emerald-400/15 bg-emerald-400/[0.04] py-2.5 text-[9px] tracking-wider text-emerald-300 transition-colors hover:bg-emerald-400/[0.08]">
+                            <div className="mt-3 grid grid-cols-2 gap-2">
+                              <button className="rounded-lg border border-emerald-400/15 bg-emerald-400/[0.04] py-2.5 text-[9px] font-medium tracking-wider text-emerald-300 transition-colors hover:bg-emerald-400/[0.08]">
                                 APPROVE
                               </button>
 
-                              <button className="rounded-lg border border-red-400/15 bg-red-400/[0.03] py-2.5 text-[9px] tracking-wider text-red-300 transition-colors hover:bg-red-400/[0.07]">
+                              <button className="rounded-lg border border-red-400/15 bg-red-400/[0.03] py-2.5 text-[9px] font-medium tracking-wider text-red-300 transition-colors hover:bg-red-400/[0.07]">
                                 BLOCK
                               </button>
                             </div>
                           )}
 
-                          <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-3">
-                            <span className="text-[8px] tracking-[0.15em] text-white/20">
+                          <div className="mt-3 flex flex-col gap-1.5 border-t border-white/[0.06] pt-3 sm:flex-row sm:items-center sm:justify-between">
+                            <span className="text-[8px] font-medium tracking-[0.15em] text-white/45">
                               DECISION RECORDED
                             </span>
 
-                            <span className={`text-[8px] ${currentStyle.text}`}>
+                            <span
+                              className={`text-[8px] ${currentStyle.text}`}
+                            >
                               {config.description}
                             </span>
                           </div>
@@ -715,8 +737,11 @@ export default function SentinelDemo() {
             </div>
           </div>
 
-          {/* Bottom explanation */}
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          {/* =======================================================
+              PRINCIPLES
+          ======================================================= */}
+
+          <div className="mt-6 grid gap-3 sm:grid-cols-3">
             <DemoPrinciple
               icon={ShieldCheck}
               title="IDENTITY"
@@ -737,17 +762,20 @@ export default function SentinelDemo() {
           </div>
         </motion.div>
 
-        {/* Final statement */}
+        {/* =========================================================
+            FINAL STATEMENT
+        ========================================================= */}
+
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-20 text-center"
+          transition={{ duration: 0.55 }}
+          className="mt-12 text-center"
         >
-          <p className="text-sm tracking-[0.05em] text-white/30">
+          <p className="text-xs font-medium tracking-[0.05em] text-white/58 sm:text-sm">
             The agent has the capability.
-            <span className="mx-2 text-blue-300/50">•</span>
+            <span className="mx-2 text-blue-300/70">•</span>
             Sentinel controls the action.
           </p>
         </motion.div>
@@ -755,6 +783,10 @@ export default function SentinelDemo() {
     </section>
   );
 }
+
+/* =========================================================
+   DEMO PRINCIPLE
+========================================================= */
 
 function DemoPrinciple({
   icon: Icon,
@@ -766,18 +798,18 @@ function DemoPrinciple({
   text: string;
 }) {
   return (
-    <div className="rounded-2xl border border-white/7 bg-white/[0.018] p-5">
+    <div className="rounded-2xl border border-white/[0.08] bg-white/[0.018] p-4 sm:p-5">
       <div className="flex items-center gap-3">
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/8 bg-white/[0.025]">
-          <Icon className="h-3.5 w-3.5 text-blue-300/60" />
+        <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.025]">
+          <Icon className="h-3.5 w-3.5 text-blue-300/80" />
         </div>
 
-        <span className="text-[9px] tracking-[0.2em] text-white/30">
+        <span className="text-[9px] font-medium tracking-[0.2em] text-white/60">
           {title}
         </span>
       </div>
 
-      <p className="mt-3 text-[10px] leading-5 text-white/30">
+      <p className="mt-2.5 text-[10px] leading-5 text-white/62">
         {text}
       </p>
     </div>

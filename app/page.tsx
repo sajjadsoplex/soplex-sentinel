@@ -8,7 +8,6 @@ import {
   Check,
   ChevronDown,
   Menu,
-  ShieldCheck,
   Sparkles,
   X,
   Zap,
@@ -74,16 +73,16 @@ export default function Home() {
           NAVBAR
       ========================================================= */}
 
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-[#03060b]/80 backdrop-blur-2xl">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.07] bg-[#03060b]/88 backdrop-blur-2xl">
         <div className="mx-auto flex h-[72px] max-w-[1500px] items-center justify-between px-5 sm:h-20 sm:px-6 lg:px-10">
           {/* Logo */}
           <a
-            href="#"
+            href="#home"
             onClick={closeMobileMenu}
             className="group flex items-center gap-3"
             aria-label="Soplex Sentinel home"
           >
-            <div className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/[0.08] bg-[#050912]">
+            <div className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/[0.1] bg-[#050912] shadow-[0_8px_30px_rgba(0,0,0,0.25)]">
               <Image
                 src="/soplex-sentinel/logo/soplex-sentinel.png"
                 alt="Soplex Sentinel"
@@ -93,7 +92,7 @@ export default function Home() {
                 className="h-full w-full object-contain"
               />
 
-              <div className="pointer-events-none absolute inset-0 bg-blue-400/[0.04] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="pointer-events-none absolute inset-0 bg-blue-400/[0.05] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </div>
 
             <div className="hidden leading-none sm:block">
@@ -102,7 +101,7 @@ export default function Home() {
                 <span className="text-blue-400">.</span>
               </div>
 
-              <div className="mt-1 text-[7px] tracking-[0.4em] text-white/35">
+              <div className="mt-1 text-[7px] tracking-[0.4em] text-white/50">
                 SENTINEL
               </div>
             </div>
@@ -114,7 +113,7 @@ export default function Home() {
               <a
                 key={item.href}
                 href={item.href}
-                className="relative py-2 text-xs text-white/45 transition-colors duration-300 hover:text-white"
+                className="group relative py-2 text-xs font-medium text-white/65 transition-colors duration-300 hover:text-white"
               >
                 {item.label}
 
@@ -126,7 +125,7 @@ export default function Home() {
           {/* Desktop CTA */}
           <a
             href="#contact"
-            className="group hidden items-center gap-2 rounded-full border border-blue-400/20 bg-blue-400/[0.06] px-4 py-2.5 text-xs text-blue-200 transition-all duration-300 hover:border-blue-400/40 hover:bg-blue-400/[0.1] sm:flex"
+            className="group hidden items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/[0.08] px-4 py-2.5 text-xs font-medium text-blue-100 transition-all duration-300 hover:border-blue-400/50 hover:bg-blue-500/[0.14] sm:flex"
           >
             Get Started
             <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
@@ -136,7 +135,7 @@ export default function Home() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen((value) => !value)}
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.025] text-white/70 transition-colors hover:bg-white/[0.05] hover:text-white md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.1] bg-white/[0.025] text-white/75 transition-all duration-300 hover:border-blue-400/20 hover:bg-blue-400/[0.05] hover:text-white md:hidden"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileMenuOpen}
           >
@@ -155,7 +154,7 @@ export default function Home() {
             height: mobileMenuOpen ? "auto" : 0,
             opacity: mobileMenuOpen ? 1 : 0,
           }}
-          className="overflow-hidden border-t border-white/[0.06] bg-[#03060b]/95 backdrop-blur-2xl md:hidden"
+          className="overflow-hidden border-t border-white/[0.07] bg-[#03060b]/96 backdrop-blur-2xl md:hidden"
         >
           <div className="px-5 pb-5 pt-3">
             <nav className="flex flex-col">
@@ -164,11 +163,12 @@ export default function Home() {
                   key={item.href}
                   href={item.href}
                   onClick={closeMobileMenu}
-                  className="border-b border-white/[0.05] py-4 text-sm text-white/55 transition-colors hover:text-white"
+                  className="border-b border-white/[0.06] py-4 text-sm font-medium text-white/70 transition-colors hover:text-white"
                 >
-                  <span className="mr-3 font-mono text-[9px] text-blue-400/50">
+                  <span className="mr-3 font-mono text-[9px] text-blue-400/70">
                     0{index + 1}
                   </span>
+
                   {item.label}
                 </a>
               ))}
@@ -176,7 +176,7 @@ export default function Home() {
               <a
                 href="#contact"
                 onClick={closeMobileMenu}
-                className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 text-xs font-medium text-black transition-colors hover:bg-blue-100"
+                className="mt-4 flex items-center justify-center gap-2 rounded-xl border border-blue-400/30 bg-blue-500 px-5 py-3.5 text-xs font-semibold text-white shadow-lg shadow-blue-500/10 transition-all duration-300 hover:bg-blue-400 hover:shadow-blue-500/20"
               >
                 Get Started
                 <ArrowRight className="h-4 w-4" />
@@ -192,19 +192,19 @@ export default function Home() {
 
       <section
         id="home"
-        className="relative min-h-screen scroll-mt-20 pt-[72px] sm:pt-20"
+        className="relative min-h-[calc(100svh-1px)] scroll-mt-20 pt-[72px] sm:pt-20"
       >
         {/* Background */}
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-1/2 top-0 h-[550px] w-[750px] -translate-x-1/2 rounded-full bg-blue-500/[0.045] blur-[150px] sm:h-[650px] sm:w-[900px]" />
+          <div className="absolute left-1/2 top-0 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-blue-500/[0.045] blur-[150px] sm:h-[620px] sm:w-[900px]" />
 
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.018)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.018)_1px,transparent_1px)] bg-[size:70px_70px] sm:bg-[size:80px_80px]" />
 
-          <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#03060b] to-transparent sm:h-80" />
+          <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#03060b] to-transparent sm:h-72" />
         </div>
 
-        <div className="relative mx-auto flex min-h-[calc(100vh-72px)] max-w-[1500px] flex-col px-5 pb-14 pt-12 sm:min-h-[calc(100vh-80px)] sm:px-6 sm:pb-20 sm:pt-20 lg:px-10 lg:pt-24">
-          <div className="grid flex-1 items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+        <div className="relative mx-auto flex min-h-[calc(100svh-72px)] max-w-[1500px] flex-col px-5 pb-10 pt-10 sm:min-h-[calc(100svh-80px)] sm:px-6 sm:pb-12 sm:pt-14 lg:px-10 lg:pt-16">
+          <div className="grid flex-1 items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
             {/* Hero copy */}
             <motion.div
               initial={{ opacity: 0, y: 35 }}
@@ -216,13 +216,13 @@ export default function Home() {
               className="max-w-2xl"
             >
               {/* Status */}
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/15 bg-blue-400/[0.04] px-3 py-1.5 sm:mb-7">
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-400/[0.05] px-3 py-1.5 sm:mb-7">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-40" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-400" />
                 </span>
 
-                <span className="text-[8px] font-medium tracking-[0.2em] text-blue-200/70 sm:text-[9px] sm:tracking-[0.22em]">
+                <span className="text-[8px] font-semibold tracking-[0.2em] text-blue-200/85 sm:text-[9px] sm:tracking-[0.22em]">
                   AI AGENT RUNTIME SECURITY
                 </span>
               </div>
@@ -231,11 +231,13 @@ export default function Home() {
               <h1 className="max-w-4xl text-[clamp(2.8rem,10vw,5.1rem)] font-semibold leading-[0.94] tracking-[-0.055em] text-white">
                 AI can act.
                 <br />
-                <span className="text-white/35">Sentinel decides.</span>
+                <span className="bg-gradient-to-r from-white via-white to-blue-300 bg-clip-text text-transparent">
+                  Sentinel decides.
+                </span>
               </h1>
 
               {/* Description */}
-              <p className="mt-6 max-w-xl text-sm leading-7 text-white/45 sm:mt-7 sm:text-base sm:leading-8 lg:text-lg">
+              <p className="mt-6 max-w-xl text-sm leading-7 text-white/65 sm:mt-7 sm:text-base sm:leading-8 lg:text-lg">
                 Soplex Sentinel gives AI agents identity, intent, and
                 enforceable boundaries — so autonomous systems can work
                 without taking control away from your business.
@@ -245,7 +247,7 @@ export default function Home() {
               <div className="mt-8 flex flex-col items-stretch gap-3 xs:flex-row xs:flex-wrap xs:items-center sm:mt-9 sm:flex-row">
                 <a
                   href="#product"
-                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-xs font-medium text-black transition-all duration-300 hover:bg-blue-100"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-blue-500 px-5 py-3 text-xs font-semibold text-white shadow-lg shadow-blue-500/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-400 hover:shadow-blue-500/20"
                 >
                   Explore Sentinel
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
@@ -253,15 +255,15 @@ export default function Home() {
 
                 <a
                   href="#how-it-works"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.025] px-5 py-3 text-xs text-white/65 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05] hover:text-white"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.025] px-5 py-3 text-xs font-medium text-white/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/30 hover:bg-blue-400/[0.05] hover:text-white"
                 >
                   See How It Works
                 </a>
               </div>
 
               {/* Small trust line */}
-              <div className="mt-8 flex items-center gap-3 text-[9px] tracking-[0.1em] text-white/25 sm:mt-9 sm:text-[10px] sm:tracking-[0.12em]">
-                <Zap className="h-3.5 w-3.5 shrink-0 text-blue-300/50" />
+              <div className="mt-8 flex items-center gap-3 text-[9px] tracking-[0.1em] text-white/45 sm:mt-9 sm:text-[10px] sm:tracking-[0.12em]">
+                <Zap className="h-3.5 w-3.5 shrink-0 text-blue-300/80" />
                 <span>BUILT FOR THE AUTONOMOUS AI WORKFORCE</span>
               </div>
             </motion.div>
@@ -278,9 +280,9 @@ export default function Home() {
               className="relative mx-auto w-full max-w-[650px] lg:max-w-none"
             >
               {/* Glow */}
-              <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/[0.06] blur-[100px] sm:h-[450px] sm:w-[450px] sm:blur-[120px]" />
+              <div className="absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/[0.06] blur-[100px] sm:h-[450px] sm:w-[450px] sm:blur-[120px]" />
 
-              <div className="relative rounded-[24px] border border-white/10 bg-[#070b12]/90 p-4 shadow-2xl shadow-black/40 backdrop-blur-xl sm:rounded-[30px] sm:p-7">
+              <div className="relative rounded-[24px] border border-white/[0.11] bg-[#070b12]/90 p-4 shadow-2xl shadow-black/40 backdrop-blur-xl sm:rounded-[30px] sm:p-7">
                 {/* Top bar */}
                 <div className="mb-4 flex items-center justify-between sm:mb-5">
                   <div className="flex items-center gap-2">
@@ -295,35 +297,35 @@ export default function Home() {
                     </div>
 
                     <div>
-                      <p className="text-[8px] tracking-[0.2em] text-white/30 sm:text-[9px]">
+                      <p className="text-[8px] font-medium tracking-[0.2em] text-white/45 sm:text-[9px]">
                         SOPLEX SENTINEL
                       </p>
 
-                      <p className="mt-1 text-[9px] text-white/60 sm:text-[10px]">
+                      <p className="mt-1 text-[9px] text-white/70 sm:text-[10px]">
                         Runtime Decision Engine
                       </p>
                     </div>
                   </div>
 
-                  <span className="rounded-full border border-emerald-400/20 bg-emerald-400/[0.05] px-2.5 py-1 text-[7px] tracking-wider text-emerald-300 sm:text-[8px]">
+                  <span className="rounded-full border border-emerald-400/20 bg-emerald-400/[0.05] px-2.5 py-1 text-[7px] font-medium tracking-wider text-emerald-300 sm:text-[8px]">
                     ACTIVE
                   </span>
                 </div>
 
                 {/* Agent */}
-                <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-3.5 sm:p-4">
+                <div className="rounded-2xl border border-white/[0.1] bg-white/[0.025] p-3.5 sm:p-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-[8px] tracking-[0.18em] text-white/25 sm:text-[9px]">
+                      <p className="text-[8px] font-medium tracking-[0.18em] text-white/45 sm:text-[9px]">
                         AI AGENT
                       </p>
 
-                      <p className="mt-1 text-sm font-medium text-white/80">
+                      <p className="mt-1 text-sm font-medium text-white/85">
                         Finance Agent
                       </p>
                     </div>
 
-                    <div className="rounded-lg border border-blue-400/15 bg-blue-400/[0.05] px-2 py-1 font-mono text-[8px] text-blue-200/70">
+                    <div className="rounded-lg border border-blue-400/15 bg-blue-400/[0.05] px-2 py-1 font-mono text-[8px] text-blue-200/80">
                       FIN-07
                     </div>
                   </div>
@@ -353,34 +355,38 @@ export default function Home() {
                 </div>
 
                 {/* Requested action */}
-                <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-3.5 sm:p-4">
+                <div className="rounded-2xl border border-white/[0.1] bg-white/[0.025] p-3.5 sm:p-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-[8px] tracking-[0.18em] text-white/25 sm:text-[9px]">
+                      <p className="text-[8px] font-medium tracking-[0.18em] text-white/45 sm:text-[9px]">
                         REQUESTED ACTION
                       </p>
 
-                      <p className="mt-1 text-sm text-white/80">
+                      <p className="mt-1 text-sm font-medium text-white/85">
                         Create Payment
                       </p>
                     </div>
 
-                    <Sparkles className="h-4 w-4 text-blue-300/60" />
+                    <Sparkles className="h-4 w-4 text-blue-300/70" />
                   </div>
 
                   <div className="mt-3 grid grid-cols-2 gap-2 sm:mt-4">
-                    <div className="rounded-lg border border-white/5 bg-black/20 p-2.5">
-                      <p className="text-[8px] text-white/25">SYSTEM</p>
+                    <div className="rounded-lg border border-white/[0.06] bg-black/20 p-2.5">
+                      <p className="text-[8px] font-medium text-white/40">
+                        SYSTEM
+                      </p>
 
-                      <p className="mt-1 text-[9px] text-white/55 sm:text-[10px]">
+                      <p className="mt-1 text-[9px] text-white/70 sm:text-[10px]">
                         Stripe Production
                       </p>
                     </div>
 
-                    <div className="rounded-lg border border-white/5 bg-black/20 p-2.5">
-                      <p className="text-[8px] text-white/25">AMOUNT</p>
+                    <div className="rounded-lg border border-white/[0.06] bg-black/20 p-2.5">
+                      <p className="text-[8px] font-medium text-white/40">
+                        AMOUNT
+                      </p>
 
-                      <p className="mt-1 text-[9px] text-white/55 sm:text-[10px]">
+                      <p className="mt-1 text-[9px] text-white/70 sm:text-[10px]">
                         $8,400
                       </p>
                     </div>
@@ -390,11 +396,11 @@ export default function Home() {
                 {/* Evaluation */}
                 <div className="mt-3 rounded-2xl border border-blue-400/10 bg-blue-400/[0.025] p-3.5 sm:mt-4 sm:p-4">
                   <div className="mb-3 flex items-center justify-between">
-                    <span className="text-[8px] tracking-[0.18em] text-blue-200/45 sm:text-[9px]">
+                    <span className="text-[8px] font-medium tracking-[0.18em] text-blue-200/65 sm:text-[9px]">
                       SENTINEL EVALUATION
                     </span>
 
-                    <span className="font-mono text-[8px] text-white/20">
+                    <span className="font-mono text-[8px] text-white/40">
                       42ms
                     </span>
                   </div>
@@ -409,7 +415,7 @@ export default function Home() {
                           delay: 0.6 + index * 0.12,
                           duration: 0.4,
                         }}
-                        className="flex items-center justify-between rounded-lg border border-white/5 bg-black/20 px-3 py-2"
+                        className="flex items-center justify-between rounded-lg border border-white/[0.06] bg-black/20 px-3 py-2"
                       >
                         <div className="flex items-center gap-2">
                           <Check
@@ -420,13 +426,13 @@ export default function Home() {
                             }`}
                           />
 
-                          <span className="text-[8px] text-white/45 sm:text-[9px]">
+                          <span className="text-[8px] font-medium text-white/65 sm:text-[9px]">
                             {item.label}
                           </span>
                         </div>
 
                         <span
-                          className={`text-[7px] tracking-wider sm:text-[8px] ${
+                          className={`text-[7px] font-medium tracking-wider sm:text-[8px] ${
                             item.status === "REVIEW"
                               ? "text-amber-300"
                               : "text-emerald-300"
@@ -448,7 +454,7 @@ export default function Home() {
                 >
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-[8px] tracking-[0.18em] text-amber-200/45 sm:text-[9px]">
+                      <p className="text-[8px] font-medium tracking-[0.18em] text-amber-200/65 sm:text-[9px]">
                         DECISION
                       </p>
 
@@ -464,14 +470,14 @@ export default function Home() {
                   <div className="mt-3 grid grid-cols-2 gap-2 sm:mt-4">
                     <button
                       type="button"
-                      className="rounded-lg border border-emerald-400/20 bg-emerald-400/[0.04] py-2.5 text-[8px] tracking-wider text-emerald-300 transition-colors hover:bg-emerald-400/[0.08] sm:text-[9px]"
+                      className="rounded-lg border border-emerald-400/20 bg-emerald-400/[0.04] py-2.5 text-[8px] font-medium tracking-wider text-emerald-300 transition-colors hover:bg-emerald-400/[0.08] sm:text-[9px]"
                     >
                       APPROVE
                     </button>
 
                     <button
                       type="button"
-                      className="rounded-lg border border-red-400/15 bg-red-400/[0.03] py-2.5 text-[8px] tracking-wider text-red-300 transition-colors hover:bg-red-400/[0.07] sm:text-[9px]"
+                      className="rounded-lg border border-red-400/15 bg-red-400/[0.03] py-2.5 text-[8px] font-medium tracking-wider text-red-300 transition-colors hover:bg-red-400/[0.07] sm:text-[9px]"
                     >
                       BLOCK
                     </button>
@@ -487,9 +493,9 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 0.6 }}
-            className="mx-auto mt-10 flex flex-col items-center gap-2 text-white/20 transition-colors hover:text-white/40 sm:mt-12"
+            className="mx-auto mt-7 flex flex-col items-center gap-2 text-white/35 transition-colors hover:text-white/65 sm:mt-8"
           >
-            <span className="text-[8px] tracking-[0.3em]">
+            <span className="text-[8px] font-medium tracking-[0.3em]">
               SCROLL TO EXPLORE
             </span>
 
@@ -511,7 +517,10 @@ export default function Home() {
           AI WORKFORCE
       ========================================================= */}
 
-      <div id="workforce" className="scroll-mt-20">
+      <div
+        id="workforce"
+        className="scroll-mt-20 border-t border-white/[0.035]"
+      >
         <WorkforceSection />
       </div>
 
@@ -519,7 +528,10 @@ export default function Home() {
           SENTINEL ARCHITECTURE
       ========================================================= */}
 
-      <div id="product" className="scroll-mt-20">
+      <div
+        id="product"
+        className="scroll-mt-20 border-t border-white/[0.035]"
+      >
         <SentinelArchitecture />
       </div>
 
@@ -527,7 +539,10 @@ export default function Home() {
           FEATURE EXPERIENCE
       ========================================================= */}
 
-      <div id="features" className="scroll-mt-20">
+      <div
+        id="features"
+        className="scroll-mt-20 border-t border-white/[0.035]"
+      >
         <FeatureCarousel />
       </div>
 
@@ -535,7 +550,10 @@ export default function Home() {
           INTERACTIVE DEMO
       ========================================================= */}
 
-      <div id="demo" className="scroll-mt-20">
+      <div
+        id="demo"
+        className="scroll-mt-20 border-t border-white/[0.035]"
+      >
         <SentinelDemo />
       </div>
 
@@ -543,7 +561,10 @@ export default function Home() {
           HOW SENTINEL WORKS
       ========================================================= */}
 
-      <div id="how-it-works" className="scroll-mt-20">
+      <div
+        id="how-it-works"
+        className="scroll-mt-20 border-t border-white/[0.035]"
+      >
         <HowSentinelWorks />
       </div>
 
@@ -551,7 +572,10 @@ export default function Home() {
           PRICING
       ========================================================= */}
 
-      <div id="pricing" className="scroll-mt-20">
+      <div
+        id="pricing"
+        className="scroll-mt-20 border-t border-white/[0.035]"
+      >
         <PricingSection />
       </div>
 
@@ -559,7 +583,10 @@ export default function Home() {
           FOUNDER
       ========================================================= */}
 
-      <div id="founder" className="scroll-mt-20">
+      <div
+        id="founder"
+        className="scroll-mt-20 border-t border-white/[0.035]"
+      >
         <FounderSection />
       </div>
 
@@ -567,7 +594,10 @@ export default function Home() {
           SECURITY PHILOSOPHY
       ========================================================= */}
 
-      <div id="security" className="scroll-mt-20">
+      <div
+        id="security"
+        className="scroll-mt-20 border-t border-white/[0.035]"
+      >
         <SecurityPhilosophy />
       </div>
 
@@ -577,13 +607,13 @@ export default function Home() {
 
       <section
         id="contact"
-        className="relative overflow-hidden border-t border-white/[0.06] bg-[#03060b] py-28 sm:py-36"
+        className="relative overflow-hidden border-t border-white/[0.07] bg-[#03060b] py-24 sm:py-32"
       >
         {/* Ambient glow */}
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[450px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/[0.05] blur-[130px] sm:h-[600px] sm:w-[900px] sm:blur-[140px]" />
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/[0.05] blur-[130px] sm:h-[550px] sm:w-[850px] sm:blur-[140px]" />
 
         {/* Top light */}
-        <div className="pointer-events-none absolute left-1/2 top-0 h-px w-[60%] -translate-x-1/2 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent" />
+        <div className="pointer-events-none absolute left-1/2 top-0 h-px w-[55%] -translate-x-1/2 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent" />
 
         {/* Grid */}
         <div
@@ -602,14 +632,14 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="mb-7 inline-flex items-center gap-3 rounded-full border border-blue-400/20 bg-blue-400/[0.05] px-4 py-2 sm:px-5 sm:py-2.5"
+            className="mb-6 inline-flex items-center gap-3 rounded-full border border-blue-400/20 bg-blue-400/[0.05] px-4 py-2 sm:px-5 sm:py-2.5"
           >
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-50" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-400" />
             </span>
 
-            <span className="text-[9px] font-medium tracking-[0.25em] text-blue-300 sm:text-[10px] sm:tracking-[0.3em]">
+            <span className="text-[9px] font-semibold tracking-[0.25em] text-blue-300 sm:text-[10px] sm:tracking-[0.3em]">
               SENTINEL · COMING SOON
             </span>
           </motion.div>
@@ -637,7 +667,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.25 }}
-            className="mx-auto mt-7 max-w-2xl text-sm leading-7 text-white/40 sm:text-base"
+            className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/60 sm:mt-7 sm:text-base sm:leading-8"
           >
             AI agents are becoming part of the workforce.
             <br className="hidden sm:block" />
@@ -650,9 +680,9 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.35 }}
-            className="mx-auto mt-12 max-w-2xl sm:mt-14"
+            className="mx-auto mt-10 max-w-2xl sm:mt-12"
           >
-            <div className="group relative overflow-hidden rounded-3xl border border-white/[0.09] bg-white/[0.025] p-6 backdrop-blur-xl sm:p-10">
+            <div className="group relative overflow-hidden rounded-3xl border border-white/[0.1] bg-white/[0.025] p-6 backdrop-blur-xl sm:p-10">
               {/* Card glow */}
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-blue-500/[0.08] via-transparent to-transparent opacity-70" />
 
@@ -669,7 +699,7 @@ export default function Home() {
 
               <div className="relative">
                 {/* Logo */}
-                <div className="mx-auto h-16 w-16 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#050912] sm:h-20 sm:w-20">
+                <div className="mx-auto h-16 w-16 overflow-hidden rounded-2xl border border-white/[0.1] bg-[#050912] sm:h-20 sm:w-20">
                   <Image
                     src="/soplex-sentinel/logo/soplex-sentinel.png"
                     alt="Soplex Sentinel"
@@ -679,7 +709,7 @@ export default function Home() {
                   />
                 </div>
 
-                <p className="mt-6 text-[9px] font-medium tracking-[0.3em] text-white/30">
+                <p className="mt-6 text-[9px] font-semibold tracking-[0.3em] text-white/45">
                   LAUNCH STATUS
                 </p>
 
@@ -687,19 +717,19 @@ export default function Home() {
                   Sentinel is almost ready.
                 </h3>
 
-                <p className="mx-auto mt-4 max-w-lg text-sm leading-6 text-white/40">
+                <p className="mx-auto mt-4 max-w-lg text-sm leading-6 text-white/60">
                   We&apos;re building the control layer for the autonomous
                   workforce. Early access will open soon.
                 </p>
 
                 {/* Status indicator */}
-                <div className="mx-auto mt-7 flex max-w-sm items-center justify-center gap-3 rounded-xl border border-white/[0.07] bg-black/30 px-4 py-3.5 sm:mt-8 sm:px-5 sm:py-4">
+                <div className="mx-auto mt-7 flex max-w-sm items-center justify-center gap-3 rounded-xl border border-white/[0.08] bg-black/30 px-4 py-3.5 sm:mt-8 sm:px-5 sm:py-4">
                   <span className="relative flex h-2.5 w-2.5">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-40" />
                     <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-blue-400" />
                   </span>
 
-                  <span className="text-[8px] tracking-[0.14em] text-white/50 sm:text-xs sm:tracking-[0.18em]">
+                  <span className="text-[8px] font-medium tracking-[0.14em] text-white/65 sm:text-xs sm:tracking-[0.18em]">
                     EARLY ACCESS · OPENING SOON
                   </span>
                 </div>
@@ -713,13 +743,13 @@ export default function Home() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.7 }}
-            className="mt-16 sm:mt-20"
+            className="mt-12 sm:mt-16"
           >
-            <p className="text-sm tracking-wide text-white/25">
+            <p className="text-sm tracking-wide text-white/45">
               Your AI workforce is coming.
             </p>
 
-            <p className="mt-3 text-lg font-light text-white/60 sm:text-xl">
+            <p className="mt-2 text-lg font-light text-white/75 sm:text-xl">
               Give it boundaries.
             </p>
           </motion.div>
@@ -730,14 +760,14 @@ export default function Home() {
           FOOTER
       ========================================================= */}
 
-      <footer className="border-t border-white/[0.06] bg-[#02050a]">
-        <div className="mx-auto flex max-w-[1500px] flex-col gap-8 px-5 py-9 sm:px-6 lg:px-10">
+      <footer className="border-t border-white/[0.07] bg-[#02050a]">
+        <div className="mx-auto flex max-w-[1500px] flex-col gap-7 px-5 py-8 sm:px-6 sm:py-9 lg:px-10">
           {/* Top */}
-          <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+          <div className="flex flex-col gap-7 sm:flex-row sm:items-start sm:justify-between">
             {/* Brand */}
             <div>
               <div className="flex items-center gap-3">
-                <div className="h-12 w-12 overflow-hidden rounded-xl border border-white/[0.08] bg-[#050912]">
+                <div className="h-12 w-12 overflow-hidden rounded-xl border border-white/[0.1] bg-[#050912]">
                   <Image
                     src="/soplex-sentinel/logo/soplex-sentinel.png"
                     alt="Soplex Sentinel"
@@ -748,13 +778,13 @@ export default function Home() {
                 </div>
 
                 <div>
-                  <div className="text-xs font-semibold tracking-[0.2em] text-white/75">
+                  <div className="text-xs font-semibold tracking-[0.2em] text-white/90">
                     SOPLEX
                     <span className="text-blue-400">.</span>
                     SENTINEL
                   </div>
 
-                  <p className="mt-1 max-w-xs text-[8px] leading-5 tracking-[0.1em] text-white/20">
+                  <p className="mt-1 max-w-xs text-[8px] leading-5 tracking-[0.1em] text-white/40">
                     INTENT-BASED RUNTIME ENFORCEMENT FOR AI AGENTS
                   </p>
                 </div>
@@ -762,45 +792,45 @@ export default function Home() {
             </div>
 
             {/* Navigation */}
-            <div className="grid grid-cols-2 gap-x-10 gap-y-3 text-[10px] text-white/30 sm:flex sm:flex-wrap sm:items-center sm:gap-5">
+            <div className="grid grid-cols-2 gap-x-10 gap-y-3 text-[10px] font-medium text-white/50 sm:flex sm:flex-wrap sm:items-center sm:gap-5">
               <a
                 href="#product"
-                className="transition-colors hover:text-white/70"
+                className="transition-colors hover:text-white"
               >
                 Product
               </a>
 
               <a
                 href="#features"
-                className="transition-colors hover:text-white/70"
+                className="transition-colors hover:text-white"
               >
                 Features
               </a>
 
               <a
                 href="#how-it-works"
-                className="transition-colors hover:text-white/70"
+                className="transition-colors hover:text-white"
               >
                 How It Works
               </a>
 
               <a
                 href="#pricing"
-                className="transition-colors hover:text-white/70"
+                className="transition-colors hover:text-white"
               >
                 Pricing
               </a>
 
               <a
                 href="#founder"
-                className="transition-colors hover:text-white/70"
+                className="transition-colors hover:text-white"
               >
                 Founder
               </a>
 
               <a
                 href="mailto:hello@soplexai.com"
-                className="transition-colors hover:text-white/70"
+                className="transition-colors hover:text-white"
               >
                 Contact
               </a>
@@ -808,10 +838,10 @@ export default function Home() {
           </div>
 
           {/* Bottom */}
-          <div className="flex flex-col gap-3 border-t border-white/[0.05] pt-6 text-[9px] text-white/20 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-3 border-t border-white/[0.06] pt-6 text-[9px] text-white/40 sm:flex-row sm:items-center sm:justify-between">
             <span>© {new Date().getFullYear()} SoplexAI</span>
 
-            <span className="tracking-[0.12em]">
+            <span className="font-medium tracking-[0.12em]">
               AI AGENT RUNTIME SECURITY
             </span>
           </div>

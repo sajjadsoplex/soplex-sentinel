@@ -78,45 +78,56 @@ const features = [
   },
 ];
 
+/* =========================================================
+   IDENTITY VISUAL
+========================================================= */
+
 function IdentityVisual() {
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/10 bg-[#070b13] p-5">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(37,99,235,0.16),transparent_55%)]" />
+    <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/[0.09] bg-[#070b13] p-4 sm:p-5">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(37,99,235,0.15),transparent_55%)]" />
 
       <div className="relative flex h-full flex-col justify-between">
         <div className="flex items-center justify-between">
-          <span className="text-[10px] font-medium tracking-[0.2em] text-white/35">
+          <span className="text-[10px] font-medium tracking-[0.2em] text-white/58">
             AGENT REGISTRY
           </span>
 
-          <span className="rounded-full border border-emerald-400/20 bg-emerald-400/5 px-2 py-1 text-[9px] tracking-wider text-emerald-300">
+          <span className="rounded-full border border-emerald-400/20 bg-emerald-400/5 px-2 py-1 text-[9px] font-medium tracking-wider text-emerald-300">
             VERIFIED
           </span>
         </div>
 
-        <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl border border-blue-400/20 bg-blue-400/5">
-          <Fingerprint className="h-10 w-10 text-blue-300" />
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-blue-400/20 bg-blue-400/5 sm:h-20 sm:w-20">
+          <Fingerprint className="h-8 w-8 text-blue-300 sm:h-10 sm:w-10" />
         </div>
 
-        <div className="rounded-xl border border-white/10 bg-white/[0.025] p-4">
+        <div className="rounded-xl border border-white/[0.09] bg-white/[0.025] p-3.5 sm:p-4">
           <div className="mb-3 flex items-center justify-between">
-            <span className="text-xs text-white/50">Agent</span>
+            <span className="text-xs text-white/65">Agent</span>
+
             <span className="font-mono text-xs text-white">
               FIN-AGENT-07
             </span>
           </div>
 
-          <div className="mb-3 h-px bg-white/5" />
+          <div className="mb-3 h-px bg-white/[0.07]" />
 
           <div className="grid grid-cols-2 gap-3 text-[10px]">
             <div>
-              <p className="text-white/30">Role</p>
-              <p className="mt-1 text-white/70">Finance Worker</p>
+              <p className="text-white/55">Role</p>
+
+              <p className="mt-1 text-white/80">
+                Finance Worker
+              </p>
             </div>
 
             <div>
-              <p className="text-white/30">Trust</p>
-              <p className="mt-1 text-emerald-300">Verified</p>
+              <p className="text-white/55">Trust</p>
+
+              <p className="mt-1 text-emerald-300">
+                Verified
+              </p>
             </div>
           </div>
         </div>
@@ -125,52 +136,56 @@ function IdentityVisual() {
   );
 }
 
+/* =========================================================
+   INTENT VISUAL
+========================================================= */
+
 function IntentVisual() {
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/10 bg-[#070b13] p-5">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(34,211,238,0.12),transparent_55%)]" />
+    <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/[0.09] bg-[#070b13] p-4 sm:p-5">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(34,211,238,0.11),transparent_55%)]" />
 
       <div className="relative flex h-full flex-col">
         <div className="flex items-center justify-between">
-          <span className="text-[10px] tracking-[0.2em] text-white/35">
+          <span className="text-[10px] font-medium tracking-[0.2em] text-white/58">
             INTENT ANALYSIS
           </span>
 
           <Zap className="h-4 w-4 text-cyan-300" />
         </div>
 
-        <div className="mt-5 rounded-xl border border-white/10 bg-white/[0.025] p-4">
-          <p className="text-[9px] tracking-[0.15em] text-white/30">
+        <div className="mt-4 rounded-xl border border-white/[0.09] bg-white/[0.025] p-3.5 sm:mt-5 sm:p-4">
+          <p className="text-[9px] font-medium tracking-[0.15em] text-white/55">
             DECLARED INTENT
           </p>
 
-          <p className="mt-2 text-sm text-white/80">
+          <p className="mt-2 text-sm leading-6 text-white/85">
             Process approved customer payments.
           </p>
         </div>
 
-        <div className="my-4 flex justify-center">
-          <div className="h-8 w-px bg-gradient-to-b from-cyan-400/40 to-transparent" />
+        <div className="my-3 flex justify-center sm:my-4">
+          <div className="h-7 w-px bg-gradient-to-b from-cyan-400/40 to-transparent" />
         </div>
 
-        <div className="rounded-xl border border-cyan-400/20 bg-cyan-400/[0.04] p-4">
+        <div className="rounded-xl border border-cyan-400/20 bg-cyan-400/[0.04] p-3.5 sm:p-4">
           <div className="flex items-center gap-3">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-400/10">
               <ShieldCheck className="h-4 w-4 text-cyan-300" />
             </div>
 
             <div>
-              <p className="text-[9px] tracking-[0.15em] text-cyan-300/60">
+              <p className="text-[9px] font-medium tracking-[0.15em] text-cyan-300/75">
                 REQUESTED ACTION
               </p>
 
-              <p className="mt-1 text-xs text-white/80">
+              <p className="mt-1 text-xs text-white/85">
                 Create payment
               </p>
             </div>
           </div>
 
-          <div className="mt-4 flex items-center gap-2">
+          <div className="mt-3 flex items-center gap-2 sm:mt-4">
             <Check className="h-3.5 w-3.5 text-emerald-300" />
 
             <span className="text-[10px] text-emerald-300">
@@ -183,18 +198,22 @@ function IntentVisual() {
   );
 }
 
+/* =========================================================
+   ENFORCEMENT VISUAL
+========================================================= */
+
 function EnforcementVisual() {
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/10 bg-[#070b13] p-5">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(37,99,235,0.12),transparent_60%)]" />
+    <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/[0.09] bg-[#070b13] p-4 sm:p-5">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(37,99,235,0.11),transparent_60%)]" />
 
       <div className="relative flex h-full flex-col justify-between">
         <div className="flex items-center justify-between">
-          <span className="text-[10px] tracking-[0.2em] text-white/35">
+          <span className="text-[10px] font-medium tracking-[0.2em] text-white/58">
             RUNTIME DECISION
           </span>
 
-          <span className="font-mono text-[9px] text-white/25">
+          <span className="font-mono text-[9px] text-white/48">
             14:32:09.421
           </span>
         </div>
@@ -206,16 +225,16 @@ function EnforcementVisual() {
           <DecisionRow label="RISK" value="REVIEW" />
         </div>
 
-        <div className="rounded-xl border border-amber-400/20 bg-amber-400/[0.04] p-4">
+        <div className="rounded-xl border border-amber-400/20 bg-amber-400/[0.04] p-3.5 sm:p-4">
           <div className="flex items-center justify-between">
-            <span className="text-[9px] tracking-[0.2em] text-amber-300/60">
+            <span className="text-[9px] font-medium tracking-[0.2em] text-amber-300/75">
               FINAL DECISION
             </span>
 
             <span className="h-2 w-2 animate-pulse rounded-full bg-amber-300" />
           </div>
 
-          <p className="mt-2 text-lg font-medium text-amber-200">
+          <p className="mt-2 text-base font-medium text-amber-200 sm:text-lg">
             APPROVAL REQUIRED
           </p>
         </div>
@@ -224,41 +243,45 @@ function EnforcementVisual() {
   );
 }
 
+/* =========================================================
+   APPROVAL VISUAL
+========================================================= */
+
 function ApprovalVisual() {
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/10 bg-[#070b13] p-5">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(34,211,238,0.1),transparent_60%)]" />
+    <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/[0.09] bg-[#070b13] p-4 sm:p-5">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(34,211,238,0.09),transparent_60%)]" />
 
       <div className="relative flex h-full flex-col justify-between">
         <div className="flex items-center justify-between">
-          <span className="text-[10px] tracking-[0.2em] text-white/35">
+          <span className="text-[10px] font-medium tracking-[0.2em] text-white/58">
             HUMAN APPROVAL
           </span>
 
           <UserCheck className="h-4 w-4 text-cyan-300" />
         </div>
 
-        <div className="rounded-xl border border-white/10 bg-white/[0.025] p-4">
-          <p className="text-[9px] tracking-[0.15em] text-white/30">
+        <div className="rounded-xl border border-white/[0.09] bg-white/[0.025] p-3.5 sm:p-4">
+          <p className="text-[9px] font-medium tracking-[0.15em] text-white/55">
             SENSITIVE ACTION
           </p>
 
-          <p className="mt-2 text-sm text-white/80">
+          <p className="mt-2 text-sm text-white/85">
             Transfer $8,400
           </p>
 
-          <div className="mt-4 flex items-center gap-2 text-[10px] text-amber-300">
+          <div className="mt-3 flex items-center gap-2 text-[10px] text-amber-300 sm:mt-4">
             <CircleAlert className="h-3.5 w-3.5" />
             Above configured threshold
           </div>
         </div>
 
         <div className="grid grid-cols-2 gap-2">
-          <button className="rounded-lg border border-emerald-400/20 bg-emerald-400/5 py-2.5 text-[10px] text-emerald-300">
+          <button className="rounded-lg border border-emerald-400/20 bg-emerald-400/5 py-2.5 text-[10px] font-medium text-emerald-300 transition-colors hover:bg-emerald-400/10">
             APPROVE
           </button>
 
-          <button className="rounded-lg border border-red-400/20 bg-red-400/5 py-2.5 text-[10px] text-red-300">
+          <button className="rounded-lg border border-red-400/20 bg-red-400/5 py-2.5 text-[10px] font-medium text-red-300 transition-colors hover:bg-red-400/10">
             BLOCK
           </button>
         </div>
@@ -267,22 +290,26 @@ function ApprovalVisual() {
   );
 }
 
+/* =========================================================
+   DRIFT VISUAL
+========================================================= */
+
 function DriftVisual() {
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/10 bg-[#070b13] p-5">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_60%,rgba(37,99,235,0.12),transparent_60%)]" />
+    <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/[0.09] bg-[#070b13] p-4 sm:p-5">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_60%,rgba(37,99,235,0.11),transparent_60%)]" />
 
       <div className="relative flex h-full flex-col">
         <div className="flex items-center justify-between">
-          <span className="text-[10px] tracking-[0.2em] text-white/35">
+          <span className="text-[10px] font-medium tracking-[0.2em] text-white/58">
             BEHAVIOR MONITOR
           </span>
 
           <CircleAlert className="h-4 w-4 text-amber-300" />
         </div>
 
-        <div className="relative mt-6 flex-1">
-          <div className="absolute left-0 right-0 top-1/2 h-px bg-white/5" />
+        <div className="relative mt-5 flex-1">
+          <div className="absolute left-0 right-0 top-1/2 h-px bg-white/[0.07]" />
 
           <svg
             viewBox="0 0 320 130"
@@ -299,22 +326,22 @@ function DriftVisual() {
             <path
               d="M0 92 C35 90, 45 84, 70 87 S110 90, 135 76"
               fill="none"
-              stroke="rgba(255,255,255,0.2)"
+              stroke="rgba(255,255,255,0.22)"
               strokeWidth="4"
             />
           </svg>
 
-          <div className="absolute bottom-2 left-0 text-[9px] text-white/25">
+          <div className="absolute bottom-2 left-0 text-[9px] text-white/48">
             EXPECTED BEHAVIOR
           </div>
 
-          <div className="absolute right-0 top-0 text-[9px] text-amber-300/70">
+          <div className="absolute right-0 top-0 text-[9px] text-amber-300/80">
             DRIFT DETECTED
           </div>
         </div>
 
         <div className="rounded-xl border border-amber-400/15 bg-amber-400/[0.035] p-3">
-          <p className="text-[10px] text-amber-200">
+          <p className="text-[10px] leading-5 text-amber-200">
             Agent behavior is moving outside its declared purpose.
           </p>
         </div>
@@ -322,6 +349,10 @@ function DriftVisual() {
     </div>
   );
 }
+
+/* =========================================================
+   AUDIT VISUAL
+========================================================= */
 
 function AuditVisual() {
   const events = [
@@ -332,46 +363,50 @@ function AuditVisual() {
   ];
 
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/10 bg-[#070b13] p-5">
+    <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/[0.09] bg-[#070b13] p-4 sm:p-5">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(34,211,238,0.08),transparent_55%)]" />
 
       <div className="relative flex h-full flex-col">
         <div className="flex items-center justify-between">
-          <span className="text-[10px] tracking-[0.2em] text-white/35">
+          <span className="text-[10px] font-medium tracking-[0.2em] text-white/58">
             EVENT STREAM
           </span>
 
           <FileText className="h-4 w-4 text-cyan-300" />
         </div>
 
-        <div className="mt-5 flex-1 space-y-2">
+        <div className="mt-4 flex-1 space-y-2 sm:mt-5">
           {events.map(([time, event, status]) => (
             <div
               key={time}
-              className="grid grid-cols-[58px_1fr_auto] items-center gap-2 rounded-lg border border-white/5 bg-white/[0.02] px-3 py-2.5"
+              className="grid grid-cols-[58px_1fr_auto] items-center gap-2 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2.5"
             >
-              <span className="font-mono text-[8px] text-white/25">
+              <span className="font-mono text-[8px] text-white/48">
                 {time}
               </span>
 
-              <span className="text-[9px] text-white/65">
+              <span className="text-[9px] text-white/75">
                 {event}
               </span>
 
-              <span className="text-[8px] tracking-wider text-cyan-300/70">
+              <span className="text-[8px] font-medium tracking-wider text-cyan-300/80">
                 {status}
               </span>
             </div>
           ))}
         </div>
 
-        <div className="rounded-lg border border-white/5 bg-white/[0.02] px-3 py-2 text-[9px] text-white/30">
+        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2 text-[9px] text-white/48">
           Immutable decision context preserved.
         </div>
       </div>
     </div>
   );
 }
+
+/* =========================================================
+   DECISION ROW
+========================================================= */
 
 function DecisionRow({
   label,
@@ -383,16 +418,18 @@ function DecisionRow({
   ok?: boolean;
 }) {
   return (
-    <div className="flex items-center justify-between rounded-lg border border-white/5 bg-white/[0.02] px-3 py-2.5">
-      <span className="text-[9px] tracking-[0.12em] text-white/30">
+    <div className="flex items-center justify-between rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2.5">
+      <span className="text-[9px] font-medium tracking-[0.12em] text-white/55">
         {label}
       </span>
 
       <div className="flex items-center gap-2">
-        {ok && <Check className="h-3 w-3 text-emerald-300" />}
+        {ok && (
+          <Check className="h-3 w-3 text-emerald-300" />
+        )}
 
         <span
-          className={`text-[9px] ${
+          className={`text-[9px] font-medium ${
             ok ? "text-emerald-300" : "text-amber-300"
           }`}
         >
@@ -403,24 +440,38 @@ function DecisionRow({
   );
 }
 
+/* =========================================================
+   FEATURE VISUAL
+========================================================= */
+
 function FeatureVisual({ visual }: { visual: string }) {
   switch (visual) {
     case "identity":
       return <IdentityVisual />;
+
     case "intent":
       return <IntentVisual />;
+
     case "enforcement":
       return <EnforcementVisual />;
+
     case "approval":
       return <ApprovalVisual />;
+
     case "drift":
       return <DriftVisual />;
+
     case "audit":
       return <AuditVisual />;
+
     default:
       return null;
   }
 }
+
+/* =========================================================
+   FEATURE CAROUSEL
+========================================================= */
 
 export default function FeatureCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -460,50 +511,76 @@ export default function FeatureCarousel() {
   return (
     <section
       id="features"
-      className="relative overflow-hidden border-t border-white/[0.06] bg-[#03060b] py-32"
+      className="relative overflow-hidden border-t border-white/[0.06] bg-[#03060b] px-0 py-20 sm:py-24 lg:py-28"
     >
-      {/* Ambient background */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-1/3 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-blue-500/[0.035] blur-[140px]" />
+      {/* =========================================================
+          AMBIENT BACKGROUND
+      ========================================================= */}
 
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.018)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.018)_1px,transparent_1px)] bg-[size:80px_80px]" />
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-1/3 h-[450px] w-[650px] -translate-x-1/2 rounded-full bg-blue-500/[0.035] blur-[130px]" />
+
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.016)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.016)_1px,transparent_1px)] bg-[size:80px_80px]" />
       </div>
 
       <div className="relative mx-auto max-w-[1500px] px-6 lg:px-10">
-        {/* Header */}
+        {/* =======================================================
+            HEADER
+        ======================================================= */}
+
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7 }}
+          initial={{
+            opacity: 0,
+            y: 24,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.3,
+          }}
+          transition={{
+            duration: 0.65,
+          }}
           className="mx-auto max-w-3xl text-center"
         >
-          <div className="mb-5 flex items-center justify-center gap-3">
-            <div className="h-px w-8 bg-blue-400/40" />
+          <div className="mb-4 flex items-center justify-center gap-3">
+            <div className="h-px w-8 bg-blue-400/50" />
 
-            <span className="text-[10px] font-medium tracking-[0.3em] text-blue-300/70">
+            <span className="text-[10px] font-medium tracking-[0.3em] text-blue-300">
               THE SENTINEL LAYER
             </span>
 
-            <div className="h-px w-8 bg-blue-400/40" />
+            <div className="h-px w-8 bg-blue-400/50" />
           </div>
 
-          <h2 className="text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
+          <h2 className="text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-white sm:text-5xl lg:text-6xl">
             Security that moves
             <br />
-            <span className="text-white/35">with the agent.</span>
+
+            <span className="text-white/65">
+              with the agent.
+            </span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/45 sm:text-base">
-            Sentinel doesn't just watch AI agents after they act.
-            It evaluates what they are about to do — and enforces your
-            boundaries in real time.
+          <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-7 text-white/68 sm:text-base">
+            Sentinel doesn't just watch AI agents after they act. It evaluates
+            what they are about to do — and enforces your boundaries in real
+            time.
           </p>
         </motion.div>
 
-        {/* Carousel */}
-        <div className="relative mt-20">
-          <div className="overflow-visible" ref={emblaRef}>
+        {/* =======================================================
+            CAROUSEL
+        ======================================================= */}
+
+        <div className="relative mt-14 sm:mt-16">
+          <div
+            className="overflow-visible"
+            ref={emblaRef}
+          >
             <div className="flex">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
@@ -511,65 +588,81 @@ export default function FeatureCarousel() {
                 return (
                   <div
                     key={feature.number}
-                    className="min-w-0 flex-[0_0_86%] px-2 sm:flex-[0_0_72%] lg:flex-[0_0_58%] xl:flex-[0_0_52%]"
+                    className="min-w-0 flex-[0_0_90%] px-2 sm:flex-[0_0_78%] lg:flex-[0_0_60%] xl:flex-[0_0_54%]"
                   >
                     <motion.div
                       animate={{
-                        scale: index === selectedIndex ? 1 : 0.91,
-                        opacity: index === selectedIndex ? 1 : 0.42,
+                        scale:
+                          index === selectedIndex
+                            ? 1
+                            : 0.93,
+
+                        opacity:
+                          index === selectedIndex
+                            ? 1
+                            : 0.5,
                       }}
                       transition={{
-                        duration: 0.5,
+                        duration: 0.45,
                         ease: [0.22, 1, 0.36, 1],
                       }}
-                      className="relative h-[580px] overflow-hidden rounded-[28px] border border-white/10 bg-[#080c14]"
+                      className="relative h-[500px] overflow-hidden rounded-[26px] border border-white/[0.09] bg-[#080c14] sm:h-[510px] sm:rounded-[28px]"
                     >
                       {/* Card glow */}
                       <div className="pointer-events-none absolute inset-0">
-                        <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-blue-500/[0.08] blur-[100px]" />
+                        <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-blue-500/[0.075] blur-[90px]" />
+
+                        <div className="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-cyan-500/[0.025] blur-[80px]" />
                       </div>
 
-                      <div className="relative grid h-full grid-cols-1 gap-8 p-7 sm:p-9 lg:grid-cols-[0.9fr_1.1fr] lg:p-10">
-                        {/* Left content */}
-                        <div className="flex flex-col">
+                      <div className="relative grid h-full grid-cols-1 gap-5 p-5 sm:gap-7 sm:p-7 lg:grid-cols-[0.88fr_1.12fr] lg:gap-8 lg:p-9">
+                        {/* =================================================
+                            LEFT CONTENT
+                        ================================================= */}
+
+                        <div className="flex min-h-0 flex-col">
                           <div className="flex items-start justify-between">
-                            <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03]">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.09] bg-white/[0.03] sm:h-11 sm:w-11">
                               <Icon className="h-5 w-5 text-blue-300" />
                             </div>
 
-                            <span className="font-mono text-5xl font-light tracking-[-0.06em] text-white/[0.08]">
+                            <span className="font-mono text-4xl font-light tracking-[-0.06em] text-white/[0.12] sm:text-5xl">
                               {feature.number}
                             </span>
                           </div>
 
-                          <div className="mt-auto">
-                            <p className="mb-3 text-[9px] font-medium tracking-[0.25em] text-blue-300/60">
+                          <div className="mt-auto pt-7">
+                            <p className="mb-2 text-[9px] font-medium tracking-[0.25em] text-blue-300/80">
                               {feature.label}
                             </p>
 
-                            <h3 className="max-w-md text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
+                            <h3 className="max-w-md text-2xl font-semibold leading-tight tracking-[-0.04em] text-white sm:text-3xl lg:text-4xl">
                               {feature.title}
                             </h3>
 
-                            <p className="mt-5 max-w-md text-sm leading-7 text-white/45">
+                            <p className="mt-4 max-w-md text-[13px] leading-6 text-white/68 sm:text-sm sm:leading-7">
                               {feature.description}
                             </p>
 
-                            <div className="mt-8 flex items-center gap-2 text-[10px] tracking-[0.16em] text-white/25">
-                              <span className="h-px w-8 bg-white/20" />
+                            <div className="mt-6 flex items-center gap-2 text-[9px] font-medium tracking-[0.16em] text-white/48">
+                              <span className="h-px w-7 bg-white/25" />
+
                               RUNTIME SECURITY
                             </div>
                           </div>
                         </div>
 
-                        {/* Right visual */}
-                        <div className="min-h-[280px] lg:min-h-0">
+                        {/* =================================================
+                            RIGHT VISUAL
+                        ================================================= */}
+
+                        <div className="min-h-[220px] lg:min-h-0">
                           <FeatureVisual visual={feature.visual} />
                         </div>
                       </div>
 
-                      {/* Bottom border accent */}
-                      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent" />
+                      {/* Bottom accent */}
+                      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-400/35 to-transparent" />
                     </motion.div>
                   </div>
                 );
@@ -577,29 +670,34 @@ export default function FeatureCarousel() {
             </div>
           </div>
 
-          {/* Controls */}
-          <div className="mt-8 flex items-center justify-between">
-            <div className="flex items-center gap-2">
+          {/* =====================================================
+              CONTROLS
+          ===================================================== */}
+
+          <div className="mt-6 flex items-center justify-between sm:mt-7">
+            {/* Indicators */}
+            <div className="flex items-center gap-1.5">
               {features.map((feature, index) => (
                 <button
                   key={feature.number}
                   onClick={() => emblaApi?.scrollTo(index)}
                   aria-label={`Go to ${feature.title}`}
-                  className="group flex h-8 items-center"
+                  className="group flex h-7 items-center"
                 >
                   <span
                     className={`h-1 rounded-full transition-all duration-300 ${
                       index === selectedIndex
                         ? "w-8 bg-blue-400"
-                        : "w-2 bg-white/15 group-hover:bg-white/30"
+                        : "w-2 bg-white/20 group-hover:bg-white/35"
                     }`}
                   />
                 </button>
               ))}
             </div>
 
-            <div className="flex items-center gap-5">
-              <span className="font-mono text-[11px] tracking-[0.15em] text-white/30">
+            {/* Navigation */}
+            <div className="flex items-center gap-4 sm:gap-5">
+              <span className="font-mono text-[10px] tracking-[0.15em] text-white/48 sm:text-[11px]">
                 {String(selectedIndex + 1).padStart(2, "0")} /{" "}
                 {String(features.length).padStart(2, "0")}
               </span>
@@ -608,7 +706,7 @@ export default function FeatureCarousel() {
                 <button
                   onClick={scrollPrev}
                   aria-label="Previous feature"
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.025] text-white/50 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05] hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.09] bg-white/[0.025] text-white/65 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05] hover:text-white sm:h-11 sm:w-11"
                 >
                   <ArrowLeft className="h-4 w-4" />
                 </button>
@@ -616,7 +714,7 @@ export default function FeatureCarousel() {
                 <button
                   onClick={scrollNext}
                   aria-label="Next feature"
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.025] text-white/50 transition-all duration-300 hover:border-blue-400/30 hover:bg-blue-400/[0.06] hover:text-blue-200"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.09] bg-white/[0.025] text-white/65 transition-all duration-300 hover:border-blue-400/30 hover:bg-blue-400/[0.06] hover:text-blue-200 sm:h-11 sm:w-11"
                 >
                   <ArrowRight className="h-4 w-4" />
                 </button>
@@ -625,20 +723,34 @@ export default function FeatureCarousel() {
           </div>
         </div>
 
-        {/* Active feature statement */}
-        <div className="mt-20 flex justify-center">
+        {/* =======================================================
+            ACTIVE FEATURE STATEMENT
+        ======================================================= */}
+
+        <div className="mt-10 flex justify-center sm:mt-12">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeFeature.number}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.3 }}
-              className="flex items-center gap-3 text-center"
+              initial={{
+                opacity: 0,
+                y: 8,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              exit={{
+                opacity: 0,
+                y: -8,
+              }}
+              transition={{
+                duration: 0.25,
+              }}
+              className="flex items-center gap-2.5 text-center"
             >
-              <ShieldCheck className="h-4 w-4 text-blue-300/60" />
+              <ShieldCheck className="h-4 w-4 text-blue-300/75" />
 
-              <span className="text-xs tracking-[0.12em] text-white/30">
+              <span className="text-[10px] font-medium tracking-[0.12em] text-white/52 sm:text-xs">
                 {activeFeature.title.toUpperCase()} · ENFORCED AT RUNTIME
               </span>
             </motion.div>

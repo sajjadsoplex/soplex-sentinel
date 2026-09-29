@@ -1,26 +1,621 @@
 @import "tailwindcss";
 
+/* =========================================================
+   SOPLEX SENTINEL — GLOBAL VISUAL SYSTEM
+   ========================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #03060b;
+  --foreground: #f5f7fb;
+
+  --sentinel-bg: #03060b;
+  --sentinel-bg-soft: #05080e;
+  --sentinel-panel: #080d15;
+  --sentinel-panel-soft: #0a1019;
+
+  --sentinel-blue: #2387ff;
+  --sentinel-blue-light: #60b4ff;
+  --sentinel-cyan: #7dd3fc;
+
+  --text-primary: rgba(255, 255, 255, 0.97);
+  --text-secondary: rgba(255, 255, 255, 0.76);
+  --text-body: rgba(255, 255, 255, 0.67);
+  --text-muted: rgba(255, 255, 255, 0.50);
+
+  --border-main: rgba(255, 255, 255, 0.09);
+  --border-soft: rgba(255, 255, 255, 0.055);
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
 }
+
+/* =========================================================
+   TAILWIND THEME
+   ========================================================= */
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--sentinel-bg);
+  color-scheme: dark;
+
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+
+  min-height: 100vh;
+  width: 100%;
+
+  background:
+    radial-gradient(
+      circle at 50% -20%,
+      rgba(35, 135, 255, 0.055),
+      transparent 38%
+    ),
+    var(--sentinel-bg);
+
+  color: var(--text-primary);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 16px;
+  line-height: 1.6;
+
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-rendering: optimizeLegibility;
+}
+
+/* =========================================================
+   ROOT / MAIN
+   ========================================================= */
+
+#__next {
+  min-height: 100vh;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+}
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background: rgba(35, 135, 255, 0.30);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: rgba(35, 135, 255, 0.30);
+  color: #ffffff;
+}
+
+/* =========================================================
+   MEDIA
+   ========================================================= */
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+  display: block;
+}
+
+svg {
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   LINKS / BUTTONS
+   ========================================================= */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+button:not(:disabled),
+a {
+  cursor: pointer;
+}
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+:focus-visible {
+  outline: 2px solid rgba(96, 180, 255, 0.90);
+  outline-offset: 3px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #03060b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  border: 2px solid #03060b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(35, 135, 255, 0.58);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color:
+    rgba(255, 255, 255, 0.15)
+    #03060b;
+}
+
+/* =========================================================
+   GLOBAL TEXT CONTRAST
+   =========================================================
+
+   Sentinel previously used many very low-opacity Tailwind
+   text-white/* classes.
+
+   These overrides keep those existing components readable
+   without requiring every component to be rewritten again.
+   ========================================================= */
+
+.text-white\/20 {
+  color: rgba(255, 255, 255, 0.46) !important;
+}
+
+.text-white\/25 {
+  color: rgba(255, 255, 255, 0.50) !important;
+}
+
+.text-white\/30 {
+  color: rgba(255, 255, 255, 0.54) !important;
+}
+
+.text-white\/35 {
+  color: rgba(255, 255, 255, 0.58) !important;
+}
+
+.text-white\/40 {
+  color: rgba(255, 255, 255, 0.63) !important;
+}
+
+.text-white\/45 {
+  color: rgba(255, 255, 255, 0.68) !important;
+}
+
+.text-white\/50 {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.text-white\/55 {
+  color: rgba(255, 255, 255, 0.76) !important;
+}
+
+.text-white\/60 {
+  color: rgba(255, 255, 255, 0.80) !important;
+}
+
+.text-white\/65 {
+  color: rgba(255, 255, 255, 0.84) !important;
+}
+
+.text-white\/70 {
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+/* =========================================================
+   GLOBAL HEADINGS
+   ========================================================= */
+
+main h1,
+main h2,
+main h3,
+main h4 {
+  text-wrap: balance;
+}
+
+main h1,
+main h2 {
+  color: var(--text-primary);
+}
+
+main h3,
+main h4 {
+  color: rgba(255, 255, 255, 0.94);
+}
+
+/* =========================================================
+   BODY COPY
+   ========================================================= */
+
+main p {
+  text-wrap: pretty;
+}
+
+/* =========================================================
+   SECTION RHYTHM
+   ========================================================= */
+
+/*
+   Prevent the website from feeling like a collection of
+   isolated pages.
+
+   These values also compensate for older components that
+   still contain larger Tailwind spacing utilities.
+*/
+
+main section {
+  position: relative;
+}
+
+/* Existing py-32 sections */
+
+main section.py-32 {
+  padding-top: clamp(4.5rem, 7vw, 6.5rem) !important;
+  padding-bottom: clamp(4.5rem, 7vw, 6.5rem) !important;
+}
+
+/* Existing py-28 sections */
+
+main section.py-28 {
+  padding-top: clamp(4rem, 6vw, 5.75rem) !important;
+  padding-bottom: clamp(4rem, 6vw, 5.75rem) !important;
+}
+
+/* Existing py-36 sections */
+
+main section.py-36 {
+  padding-top: clamp(5rem, 8vw, 7rem) !important;
+  padding-bottom: clamp(5rem, 8vw, 7rem) !important;
+}
+
+/* =========================================================
+   SECTION SEPARATION
+   ========================================================= */
+
+main > div[id],
+main > section[id] {
+  position: relative;
+}
+
+/*
+   Very subtle divider.
+
+   This should create continuity between sections rather
+   than visibly dividing the page into separate blocks.
+*/
+
+main > div[id]::before,
+main > section[id]::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 0;
+
+  width: min(82%, 1100px);
+  height: 1px;
+
+  transform: translateX(-50%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.045) 35%,
+      rgba(255, 255, 255, 0.075) 50%,
+      rgba(255, 255, 255, 0.045) 65%,
+      transparent 100%
+    );
+
+  pointer-events: none;
+}
+
+/*
+   Don't put a divider immediately beneath the hero.
+*/
+
+main > section:first-child::before,
+main > div:first-child::before {
+  display: none;
+}
+
+/* =========================================================
+   COMMON SENTINEL PANEL
+   ========================================================= */
+
+.sentinel-panel {
+  position: relative;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.038),
+      rgba(255, 255, 255, 0.014)
+    );
+
+  border: 1px solid var(--border-main);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* =========================================================
+   COMMON SENTINEL GRID
+   ========================================================= */
+
+.sentinel-grid {
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.022) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.022) 1px,
+      transparent 1px
+    );
+
+  background-size: 56px 56px;
+}
+
+/* =========================================================
+   BLUE ACCENT LINE
+   ========================================================= */
+
+.sentinel-blue-line {
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(35, 135, 255, 0.72),
+      transparent
+    );
+}
+
+/* =========================================================
+   GRADIENT HEADLINES
+   ========================================================= */
+
+.sentinel-gradient-text {
+  background:
+    linear-gradient(
+      110deg,
+      #ffffff 0%,
+      #ffffff 44%,
+      #70b9ff 100%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================================================
+   CARD SYSTEM
+   ========================================================= */
+
+.sentinel-card {
+  position: relative;
+
+  transition:
+    border-color 300ms ease,
+    background-color 300ms ease,
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 300ms ease;
+}
+
+.sentinel-card:hover {
+  border-color: rgba(66, 165, 255, 0.24);
+
+  background-color: rgba(255, 255, 255, 0.025);
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.20),
+    0 0 30px rgba(35, 135, 255, 0.035);
+}
+
+/* =========================================================
+   INTERACTIVE ELEMENTS
+   ========================================================= */
+
+button,
+a,
+.sentinel-card {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/*
+   Avoid accidental text/image selection during the
+   cinematic interactive portions of the interface.
+*/
+
+.sentinel-card img,
+.sentinel-card svg {
+  pointer-events: none;
+}
+
+/* =========================================================
+   SAFE ANIMATION CONTAINER
+   ========================================================= */
+
+[data-framer-motion],
+.motion-safe {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+  body {
+    font-size: 15px;
+  }
+
+  html {
+    scroll-padding-top: 72px;
+  }
+
+  main section.py-32 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  main section.py-28 {
+    padding-top: 3.75rem !important;
+    padding-bottom: 3.75rem !important;
+  }
+
+  main section.py-36 {
+    padding-top: 4.5rem !important;
+    padding-bottom: 4.5rem !important;
+  }
+
+  .sentinel-grid {
+    background-size: 34px 34px;
+  }
+
+  main > div[id]::before,
+  main > section[id]::before {
+    width: 88%;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  main section.py-32 {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  main section.py-28 {
+    padding-top: 3.25rem !important;
+    padding-bottom: 3.25rem !important;
+  }
+
+  main section.py-36 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  .sentinel-grid {
+    background-size: 30px 30px;
+  }
+}
+
+/* =========================================================
+   REDUCE MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================
+   HORIZONTAL OVERFLOW PROTECTION
+   ========================================================= */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   FINAL POLISH — TOUCH DEVICES
+   ========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+  .sentinel-card:hover {
+    border-color: var(--border-main);
+    background-color: transparent;
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.025);
+  }
 }

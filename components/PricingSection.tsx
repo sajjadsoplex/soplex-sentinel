@@ -94,59 +94,63 @@ export default function PricingSection() {
   return (
     <section
       id="pricing"
-      className="relative overflow-hidden border-t border-white/[0.06] bg-[#03060b] py-32"
+      className="relative overflow-hidden border-t border-white/[0.06] bg-[#03060b] py-20 sm:py-24 lg:py-28"
     >
       {/* =====================================================
           BACKGROUND
       ===================================================== */}
 
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-1/4 h-[550px] w-[800px] -translate-x-1/2 rounded-full bg-blue-500/[0.035] blur-[150px]" />
+        <div className="absolute left-1/2 top-1/4 h-[520px] w-[760px] -translate-x-1/2 rounded-full bg-blue-500/[0.035] blur-[150px]" />
 
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.014)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.014)_1px,transparent_1px)] bg-[size:80px_80px]" />
       </div>
 
-      <div className="relative mx-auto max-w-[1450px] px-6 lg:px-10">
+      <div className="relative mx-auto max-w-[1450px] px-5 sm:px-6 lg:px-10">
         {/* =====================================================
             HEADER
         ===================================================== */}
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.7 }}
+          transition={{
+            duration: 0.7,
+            ease: [0.22, 1, 0.36, 1],
+          }}
           className="mx-auto max-w-3xl text-center"
         >
-          <div className="mb-5 flex items-center justify-center gap-3">
-            <div className="h-px w-8 bg-blue-400/40" />
+          <div className="mb-4 flex items-center justify-center gap-3">
+            <div className="h-px w-8 bg-blue-400/45" />
 
-            <span className="text-[10px] tracking-[0.3em] text-blue-300/70">
+            <span className="text-[10px] font-medium tracking-[0.3em] text-blue-300/85">
               PRICING
             </span>
 
-            <div className="h-px w-8 bg-blue-400/40" />
+            <div className="h-px w-8 bg-blue-400/45" />
           </div>
 
           <h2 className="text-4xl font-semibold tracking-[-0.045em] text-white sm:text-5xl lg:text-6xl">
             Secure the workforce
             <br />
-            <span className="text-white/30">you have today.</span>
+            <span className="text-white/58">you have today.</span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/40 sm:text-base">
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/65 sm:text-base">
             Start with a few agents. Expand your security layer as your
             autonomous workforce grows.
           </p>
 
           {/* Billing toggle */}
-          <div className="mt-8 inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.025] p-1">
+
+          <div className="mt-7 inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.025] p-1">
             <button
               onClick={() => setAnnual(false)}
-              className={`rounded-full px-4 py-2 text-[10px] transition-all ${
+              className={`rounded-full px-4 py-2 text-[10px] font-medium transition-all ${
                 !annual
                   ? "bg-white text-black"
-                  : "text-white/35 hover:text-white/60"
+                  : "text-white/55 hover:text-white"
               }`}
             >
               Monthly
@@ -154,10 +158,10 @@ export default function PricingSection() {
 
             <button
               onClick={() => setAnnual(true)}
-              className={`flex items-center gap-2 rounded-full px-4 py-2 text-[10px] transition-all ${
+              className={`flex items-center gap-2 rounded-full px-4 py-2 text-[10px] font-medium transition-all ${
                 annual
                   ? "bg-white text-black"
-                  : "text-white/35 hover:text-white/60"
+                  : "text-white/55 hover:text-white"
               }`}
             >
               Annual
@@ -165,7 +169,7 @@ export default function PricingSection() {
               <span
                 className={`rounded-full px-1.5 py-0.5 text-[8px] ${
                   annual
-                    ? "bg-black/10 text-black/60"
+                    ? "bg-black/10 text-black/70"
                     : "bg-emerald-400/10 text-emerald-300"
                 }`}
               >
@@ -179,34 +183,36 @@ export default function PricingSection() {
             PRICING CARDS
         ===================================================== */}
 
-        <div className="mt-16 grid gap-5 lg:grid-cols-3">
+        <div className="mt-12 grid gap-4 lg:grid-cols-3 lg:gap-5">
           {plans.map((plan, index) => {
             const price = annual ? plan.annual : plan.monthly;
 
             return (
               <motion.div
                 key={plan.name}
-                initial={{ opacity: 0, y: 35 }}
+                initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{
                   duration: 0.6,
                   delay: index * 0.1,
+                  ease: [0.22, 1, 0.36, 1],
                 }}
-                className={`relative rounded-[28px] border p-7 sm:p-8 ${
+                className={`group relative rounded-[26px] border p-6 transition-all duration-300 sm:p-7 ${
                   plan.featured
-                    ? "border-blue-400/25 bg-blue-400/[0.035]"
-                    : "border-white/10 bg-[#070b12]"
+                    ? "border-blue-400/30 bg-blue-400/[0.04] shadow-[0_0_60px_rgba(59,130,246,0.05)]"
+                    : "border-white/10 bg-[#070b12] hover:border-white/15"
                 }`}
               >
                 {/* Featured glow */}
+
                 {plan.featured && (
                   <>
-                    <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[28px]">
+                    <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[26px]">
                       <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-blue-500/[0.08] blur-[90px]" />
                     </div>
 
-                    <div className="absolute right-6 top-6 rounded-full border border-blue-400/20 bg-blue-400/[0.08] px-3 py-1.5 text-[8px] tracking-[0.15em] text-blue-200">
+                    <div className="absolute right-5 top-5 rounded-full border border-blue-400/20 bg-blue-400/[0.08] px-3 py-1.5 text-[8px] font-medium tracking-[0.15em] text-blue-200">
                       MOST USED
                     </div>
                   </>
@@ -214,67 +220,71 @@ export default function PricingSection() {
 
                 <div className="relative">
                   {/* Plan */}
+
                   <p
-                    className={`text-[10px] tracking-[0.25em] ${
+                    className={`text-[10px] font-medium tracking-[0.25em] ${
                       plan.featured
-                        ? "text-blue-300/70"
-                        : "text-white/25"
+                        ? "text-blue-300/90"
+                        : "text-white/55"
                     }`}
                   >
                     {plan.name.toUpperCase()}
                   </p>
 
-                  <p className="mt-4 max-w-xs text-sm leading-6 text-white/40">
+                  <p className="mt-3 max-w-xs text-sm leading-6 text-white/62">
                     {plan.description}
                   </p>
 
                   {/* Price */}
-                  <div className="mt-7 flex items-end gap-2">
+
+                  <div className="mt-6 flex items-end gap-2">
                     <span className="text-5xl font-semibold tracking-[-0.06em] text-white">
                       ${price}
                     </span>
 
-                    <span className="mb-2 text-xs text-white/25">
+                    <span className="mb-2 text-xs text-white/50">
                       /month
                     </span>
                   </div>
 
                   {annual && (
-                    <p className="mt-2 text-[9px] text-emerald-300/60">
+                    <p className="mt-2 text-[9px] font-medium text-emerald-300/80">
                       Billed annually
                     </p>
                   )}
 
                   {/* Capacity */}
-                  <div className="mt-7 grid grid-cols-2 gap-2">
-                    <div className="rounded-xl border border-white/7 bg-black/20 p-3">
-                      <p className="text-[8px] tracking-[0.15em] text-white/20">
+
+                  <div className="mt-6 grid grid-cols-2 gap-2">
+                    <div className="rounded-xl border border-white/10 bg-black/20 p-3">
+                      <p className="text-[8px] font-medium tracking-[0.15em] text-white/45">
                         AGENTS
                       </p>
 
-                      <p className="mt-1 text-xs text-white/65">
+                      <p className="mt-1 text-xs font-medium text-white/75">
                         {plan.agents}
                       </p>
                     </div>
 
-                    <div className="rounded-xl border border-white/7 bg-black/20 p-3">
-                      <p className="text-[8px] tracking-[0.15em] text-white/20">
+                    <div className="rounded-xl border border-white/10 bg-black/20 p-3">
+                      <p className="text-[8px] font-medium tracking-[0.15em] text-white/45">
                         ACTIONS
                       </p>
 
-                      <p className="mt-1 text-xs text-white/65">
+                      <p className="mt-1 text-xs font-medium text-white/75">
                         {plan.actions.split(" ")[0]}
                       </p>
                     </div>
                   </div>
 
                   {/* CTA */}
+
                   <a
                     href="#contact"
-                    className={`group mt-7 flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-[10px] font-medium tracking-[0.08em] transition-all ${
+                    className={`group mt-6 flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-[10px] font-medium tracking-[0.08em] transition-all ${
                       plan.featured
                         ? "bg-white text-black hover:bg-blue-100"
-                        : "border border-white/10 bg-white/[0.025] text-white/60 hover:border-white/20 hover:bg-white/[0.05] hover:text-white"
+                        : "border border-white/10 bg-white/[0.025] text-white/75 hover:border-white/20 hover:bg-white/[0.05] hover:text-white"
                     }`}
                   >
                     {plan.name === "Business"
@@ -285,10 +295,12 @@ export default function PricingSection() {
                   </a>
 
                   {/* Divider */}
-                  <div className="my-7 h-px bg-white/[0.06]" />
+
+                  <div className="my-6 h-px bg-white/[0.07]" />
 
                   {/* Features */}
-                  <p className="mb-4 text-[8px] tracking-[0.2em] text-white/20">
+
+                  <p className="mb-4 text-[8px] font-medium tracking-[0.2em] text-white/45">
                     INCLUDED
                   </p>
 
@@ -298,11 +310,11 @@ export default function PricingSection() {
                         key={feature}
                         className="flex items-start gap-3"
                       >
-                        <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-400/[0.06]">
-                          <Check className="h-2.5 w-2.5 text-emerald-300/80" />
+                        <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-400/[0.07]">
+                          <Check className="h-2.5 w-2.5 text-emerald-300/90" />
                         </div>
 
-                        <span className="text-[10px] leading-5 text-white/40">
+                        <span className="text-[10px] leading-5 text-white/62">
                           {feature}
                         </span>
                       </div>
@@ -319,15 +331,18 @@ export default function PricingSection() {
         ===================================================== */}
 
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.6 }}
-          className="relative mt-5 overflow-hidden rounded-[28px] border border-white/10 bg-[#070b12]"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{
+            duration: 0.6,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="relative mt-4 overflow-hidden rounded-[26px] border border-white/10 bg-[#070b12]"
         >
           <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-blue-500/[0.045] blur-[100px]" />
 
-          <div className="relative grid gap-8 p-7 sm:p-9 lg:grid-cols-[1.3fr_0.7fr] lg:items-center lg:p-10">
+          <div className="relative grid gap-7 p-6 sm:p-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-center lg:p-9">
             <div>
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-blue-400/15 bg-blue-400/[0.05]">
@@ -335,40 +350,37 @@ export default function PricingSection() {
                 </div>
 
                 <div>
-                  <p className="text-[9px] tracking-[0.25em] text-blue-300/60">
+                  <p className="text-[9px] font-medium tracking-[0.25em] text-blue-300/85">
                     ENTERPRISE
                   </p>
 
-                  <p className="mt-1 text-xs text-white/45">
+                  <p className="mt-1 text-xs text-white/60">
                     For large-scale autonomous operations
                   </p>
                 </div>
               </div>
 
-              <h3 className="mt-6 text-2xl font-semibold tracking-[-0.035em] text-white sm:text-3xl">
+              <h3 className="mt-5 text-2xl font-semibold tracking-[-0.035em] text-white sm:text-3xl">
                 Security architecture built around your AI workforce.
               </h3>
 
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-white/35">
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-white/62">
                 Custom agent volumes, protected action capacity, advanced
                 enforcement, deployment requirements, security assessments,
                 and enterprise support.
               </p>
 
-              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3">
+              <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3">
                 {[
                   "Custom policies",
                   "Advanced controls",
                   "Security assessments",
                   "Dedicated support",
                 ].map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-center gap-2"
-                  >
-                    <Check className="h-3 w-3 text-blue-300/70" />
+                  <div key={item} className="flex items-center gap-2">
+                    <Check className="h-3 w-3 text-blue-300/85" />
 
-                    <span className="text-[9px] text-white/35">
+                    <span className="text-[9px] text-white/58">
                       {item}
                     </span>
                   </div>
@@ -379,7 +391,7 @@ export default function PricingSection() {
             <div className="lg:flex lg:justify-end">
               <a
                 href="#contact"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.025] px-6 py-3.5 text-[10px] font-medium tracking-[0.08em] text-white/65 transition-all hover:border-white/20 hover:bg-white/[0.05] hover:text-white lg:w-auto"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.025] px-6 py-3.5 text-[10px] font-medium tracking-[0.08em] text-white/75 transition-all hover:border-white/20 hover:bg-white/[0.05] hover:text-white lg:w-auto"
               >
                 TALK TO SALES
 
@@ -390,34 +402,34 @@ export default function PricingSection() {
         </motion.div>
 
         {/* =====================================================
-            ASSESSMENT
+            SECURITY ASSESSMENT
         ===================================================== */}
 
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-5 rounded-[24px] border border-white/7 bg-white/[0.018] p-6 sm:p-7"
+          className="mt-4 rounded-[22px] border border-white/10 bg-white/[0.018] p-5 sm:p-6"
         >
-          <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-start gap-4">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/8 bg-white/[0.025]">
-                <Sparkles className="h-4 w-4 text-blue-300/60" />
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.025]">
+                <Sparkles className="h-4 w-4 text-blue-300/80" />
               </div>
 
               <div>
-                <p className="text-[9px] tracking-[0.2em] text-white/25">
+                <p className="text-[9px] font-medium tracking-[0.2em] text-white/50">
                   SECURITY ASSESSMENTS
                 </p>
 
-                <p className="mt-1 text-xs text-white/45">
+                <p className="mt-1 text-xs text-white/62">
                   AI-agent security assessments available separately.
                 </p>
               </div>
             </div>
 
-            <span className="text-[10px] text-white/25">
+            <span className="text-sm font-medium text-white/70">
               $2,500 – $10,000
             </span>
           </div>
@@ -428,23 +440,26 @@ export default function PricingSection() {
         ===================================================== */}
 
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7 }}
-          className="mx-auto mt-24 max-w-3xl"
+          transition={{
+            duration: 0.7,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="mx-auto mt-16 max-w-3xl"
         >
           <div className="text-center">
-            <p className="text-[9px] tracking-[0.25em] text-white/20">
+            <p className="text-[9px] font-medium tracking-[0.25em] text-white/50">
               QUESTIONS
             </p>
 
-            <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white">
+            <h3 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-white">
               Before you deploy.
             </h3>
           </div>
 
-          <div className="mt-10 divide-y divide-white/[0.06] border-y border-white/[0.06]">
+          <div className="mt-8 divide-y divide-white/[0.07] border-y border-white/[0.07]">
             {faqs.map((faq, index) => {
               const open = openFaq === index;
 
@@ -456,19 +471,19 @@ export default function PricingSection() {
                     }
                     className="flex w-full items-center justify-between gap-6 py-5 text-left"
                   >
-                    <span className="text-sm text-white/60 transition-colors hover:text-white/80">
+                    <span className="text-sm font-medium text-white/72 transition-colors hover:text-white">
                       {faq.question}
                     </span>
 
                     <ChevronDown
-                      className={`h-4 w-4 shrink-0 text-white/20 transition-transform duration-300 ${
-                        open ? "rotate-180 text-blue-300/60" : ""
+                      className={`h-4 w-4 shrink-0 text-white/45 transition-transform duration-300 ${
+                        open ? "rotate-180 text-blue-300" : ""
                       }`}
                     />
                   </button>
 
                   <AnimateHeight open={open}>
-                    <p className="pb-5 pr-10 text-xs leading-6 text-white/30">
+                    <p className="pb-5 pr-10 text-xs leading-6 text-white/58">
                       {faq.answer}
                     </p>
                   </AnimateHeight>
@@ -482,9 +497,9 @@ export default function PricingSection() {
             FOOTNOTE
         ===================================================== */}
 
-        <p className="mt-12 text-center text-[9px] leading-5 text-white/15">
-          Pricing shown is proposed launch pricing and may change as
-          Sentinel evolves.
+        <p className="mt-9 text-center text-[9px] leading-5 text-white/35">
+          Pricing shown is proposed launch pricing and may change as Sentinel
+          evolves.
         </p>
       </div>
     </section>
